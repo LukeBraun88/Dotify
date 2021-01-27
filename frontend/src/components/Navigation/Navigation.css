@@ -1,0 +1,80 @@
+
+body {
+    font-family: sans-serif;
+}
+
+
+.navbar{
+ height: 70px;
+ width: 100%;
+ background-color: #000000;
+ justify-content: center;
+ position:fixed;
+}
+
+.navbar-list{
+ display:flex;
+ height:100%;
+ width:100%;
+}
+
+.link{
+ padding: 0px 20px;
+}
+
+.seperator {
+    border-left: 2px solid white;
+    width:50px;
+    font-size: 18px;
+}
+
+.navlink {
+    color: #d9dadc;
+    text-decoration: none;
+    /* font-weight: bold; */
+    font-size: 90%;
+    font-weight: 700;
+
+}
+.home {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 180%;
+}
+
+.signup {
+    /* width:50px */
+}
+
+.navlink:hover {
+    color:rgb(40, 167, 40);
+}
+
+.right-links {
+    display:flex;
+    width:30%;
+    height: 100%;
+    padding: 0px 20px;
+    align-items: center;
+}
+
+.left-links {
+    display:flex;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    padding: 0px 0px 0px 100px;
+}
+
+
+body {
+    background-image:'../../../public/spotify.jpg' ;
+}
+
+.page{
+    width:100vw;
+    height:100vh;
+    background-image:url('./spotify.jpg');
+     background-size: cover
+}

@@ -1,0 +1,28 @@
+.sidebar-links li a {
+    height: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin: 0 10px;
+}
+
+
+.sidebar-links>li>a {
+    color: #B3B3B3;
+    transition-duration: 0.3s;
+}
+
+.sidebar {
+    background-color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 90vh;
+    width: 235px;
+}
+
+.sidebar-links li a i {
+    margin-right: 17px;
+    font-size: 20px;
+}
+

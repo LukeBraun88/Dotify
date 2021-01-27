@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const csurf = require('csurf');
+const bodyParser = require("body-parser");
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const routes = require('./routes');
@@ -16,8 +17,9 @@ const app = express();
 app.use(morgan('dev'));
 //Add the cookie-parser middleware for parsing cookies
 app.use(cookieParser());
-//express.json middleware for parsing JSON bodies of requests with Content-Type of "application/json".
-app.use(express.json());
+//changed express.json middleware to bodyParser for aws
+app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
 // Connect all the routes
 
 // Security Middleware
