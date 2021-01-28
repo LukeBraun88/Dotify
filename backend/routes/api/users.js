@@ -34,19 +34,17 @@ const validateSignup = [
     handleValidationErrors,
 ];
 
+//this isn't working ---------------------
 // Sign up
 router.post(
     '/',
     singleMulterUpload("image"),
     validateSignup,
     asyncHandler(async (req, res) => {
-        console.log("this working")
         const { email, password, username } = req.body;
-        const profileImageUrl = await singlePublicFileUpload(req.file)
-        const user = await User.signup({ email, username, password, profileImageUrl});
-
+        const location = await singlePublicFileUpload(req.file)
+        const user = await User.signup({ email, username, password, profileImageUrl: location});
         await setTokenCookie(res, user);
-
         return res.json({
             user,
         });

@@ -25,9 +25,9 @@ const singlePublicFileUpload = async (file) => {
     ACL: "public-read",
   };
   const result = await s3.upload(uploadParams).promise();
-
+  const location = result.Location
   // save the name of the file in your bucket as the key in your database to retrieve for later
-  return result.Location;
+  return location;
 };
 
 const multiplePublicFileUpload = async (files) => {

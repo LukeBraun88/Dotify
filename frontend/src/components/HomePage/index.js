@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { NavLink } from 'react-router-dom'
 import PlayingNow from "../PlayingNow";
 import MusicBar from "../MusicBar";
-import HomeNavBar from "../HomeNavBar";
 import Sidebar from "../Sidebar"
+import Navigation from "../Navigation"
+import { AllSongs } from "../AllSongs";
+
 
 function HomePage() {
     return (
@@ -12,8 +14,9 @@ function HomePage() {
             <div className="container">
                 <Sidebar />
                 <div class="music">
-                        <HomeNavBar />
+                        <Navigation />
                         <PlayingNow />
+                        <AllSongs />
                 </div>
                 <MusicBar />
             </div>

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
-import * as sessionActions from "../../store/session";
+// import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 import {createUser} from "../../store/session"
 
 
 function SignupForm() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    // const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -32,6 +32,7 @@ function SignupForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         let newErrors = [];
+        console.log("submit",image)
         return dispatch(createUser({ username, email, password, image }))
             .then(() => {
                 setUsername("");

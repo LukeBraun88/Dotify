@@ -6,6 +6,8 @@ import SignupFormPage from "./components/SignupFormModal";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage"
+import UploadSongForm from "./components/UploadSongForm"
+import AllSongs from "./components/AllSongs";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,8 +23,14 @@ function App() {
       {!sessionUser ? <Navigation isLoaded={isLoaded} /> :
       isLoaded && (
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
               <HomePage />
+          </Route>
+          <Route path="/songs">
+            <AllSongs />
+          </Route>
+          <Route path="/songs/upload">
+          <UploadSongForm />
           </Route>
         </Switch>
       )

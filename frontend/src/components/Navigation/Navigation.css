@@ -5,17 +5,20 @@ body {
 
 
 .navbar{
- height: 70px;
+height: 70px;
  width: 100%;
  background-color: #000000;
  justify-content: center;
  position:fixed;
+
 }
+
 
 .navbar-list{
  display:flex;
  height:100%;
  width:100%;
+ padding: 0px 0px;
 }
 
 .link{
@@ -78,3 +81,12 @@ body {
     background-image:url('./spotify.jpg');
      background-size: cover
 }
+
+
+.profile {
+    right:70px;
+}
+
+/* .profile-pic {
+    width:20px;
+} */

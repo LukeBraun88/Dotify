@@ -14,7 +14,7 @@ const setUser = (user) => {
 };
 //thunk which accepts an object of key value pairs and turns them into FormData entries to send with your request.
 export const createUser = (user) => async (dispatch) => {
-    const { images, image, username, email, password } = user;
+    const { image, username, email, password } = user; //can add images if multiple
     const formData = new FormData();
     formData.append("username", username);
     formData.append("email", email);
@@ -37,7 +37,6 @@ export const createUser = (user) => async (dispatch) => {
         method: "POST",
         body: formData,
     });
-
     dispatch(setUser(res.data.user));
 };
 

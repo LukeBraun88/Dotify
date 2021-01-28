@@ -22,17 +22,21 @@ function Navigation({ isLoaded }) {
       </>
     );
   }
-
+console.log("user",sessionUser)
   return (
     <>
     <div className="navbar">
       <ul className="navbar-list">
       <div className="left-links">
           <li className="link"><NavLink className="home navlink" exact to="/" >Dotify</NavLink></li>
-      </div> {sessionUser ?
-        <li><ProfileButton user={sessionUser} /></li> :
+      </div>
+      {sessionUser ?
+      <div>
+        <li className="profile-pic"><img src={sessionUser.profileImageUrl}></img></li>
+        <li><ProfileButton user={sessionUser} /></li>
+      </div>:
           (<div className="right-links">
-            <li  className="seperator">|</li>
+            <li className="seperator">|</li>
             <li className="link signup">{isLoaded && <SignupFormModal />}</li>
             <li className="link">{isLoaded && <LoginFormModal />}</li>
           </div>)
