@@ -1,28 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import {useEffect} from "react"
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal'
 import './Navigation.css';
+import HomePage from "../HomePage"
 
 function Navigation({ isLoaded }) {
+
   const sessionUser = useSelector(state => state.session.user);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <LoginFormModal />
-        <SignupFormModal />
-      </>
-    );
-  }
-console.log("user",sessionUser)
+  // useEffect(()=>{
+  //   },[])
+
+
   return (
     <>
     <div className="navbar">
@@ -31,9 +24,9 @@ console.log("user",sessionUser)
           <li className="link"><NavLink className="home navlink" exact to="/" >Dotify</NavLink></li>
       </div>
       {sessionUser ?
-      <div>
-        <li className="profile-pic"><img src={sessionUser.profileImageUrl}></img></li>
-        <li><ProfileButton user={sessionUser} /></li>
+      <div className="dropdown-container">
+              <li><img src={sessionUser.profileImageUrl}></img></li>
+              <li><ProfileButton user={sessionUser} /></li>
       </div>:
           (<div className="right-links">
             <li className="seperator">|</li>
@@ -43,9 +36,12 @@ console.log("user",sessionUser)
         }
       </ul>
     </div>
-    <div className="page">
+      {!sessionUser?
+    (<div className="page">
         <img href=""></img>
-    </div>
+    </div>):
+    <HomePage />
+}
 </>
 
   );

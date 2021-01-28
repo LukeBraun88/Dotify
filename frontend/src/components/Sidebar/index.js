@@ -8,7 +8,7 @@ export default function Sidebar(){
             <ul className="sidebar-links">
                 <li><NavLink to="/"><i class="fas fa-home"></i>Home</NavLink></li>
                 <li><NavLink to="/"><i class="fas fa-search"></i>Search</NavLink></li>
-                <li><NavLink to="/"><i class="fas fa-book-open"></i>Library</NavLink></li>
+                <li><NavLink to="/liked"><i class="fas fa-book-open"></i>Liked Songs</NavLink></li>
             </ul>
             <div className="seperator"></div>
         </div>

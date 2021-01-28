@@ -5,8 +5,7 @@ import PlayingNow from "../PlayingNow";
 import MusicBar from "../MusicBar";
 import Sidebar from "../Sidebar"
 import Navigation from "../Navigation"
-import { AllSongs } from "../AllSongs";
-
+import AllSongs from "../AllSongs"
 
 function HomePage() {
     return (
@@ -14,8 +13,6 @@ function HomePage() {
             <div className="container">
                 <Sidebar />
                 <div class="music">
-                        <Navigation />
-                        <PlayingNow />
                         <AllSongs />
                 </div>
                 <MusicBar />

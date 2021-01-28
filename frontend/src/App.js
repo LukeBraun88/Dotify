@@ -6,8 +6,9 @@ import SignupFormPage from "./components/SignupFormModal";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage"
-import UploadSongForm from "./components/UploadSongForm"
+import LikedSongs from "./components/LikedSongs"
 import AllSongs from "./components/AllSongs";
+import UploadSongForm from "./components/UploadSongForm/Index";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,17 +21,22 @@ function App() {
 
   return (
     <>
-      {!sessionUser ? <Navigation isLoaded={isLoaded} /> :
+
+          {!sessionUser ? <Navigation isLoaded={isLoaded} /> :
       isLoaded && (
         <Switch>
+        <Navigation isLoaded={isLoaded} />
           <Route exact path="/">
               <HomePage />
           </Route>
           <Route path="/songs">
             <AllSongs />
           </Route>
-          <Route path="/songs/upload">
-          <UploadSongForm />
+          <Route path="/upload">
+            <UploadSongForm />
+          </Route>
+          <Route to="/liked">
+            <LikedSongs />
           </Route>
         </Switch>
       )

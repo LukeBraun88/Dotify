@@ -9,6 +9,7 @@ const  {Song, User} = require("../../db/models")
 const { handleValidationErrors } = require('../../utils/validation');
 const { check } = require('express-validator');
 const { singlePublicFileUpload, singleMulterUpload } = require("../../awsS3")
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
 
 //Restore session user
 
@@ -21,15 +22,14 @@ const validateSongCreate = [
     check('artist')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the artist'),
-    check('songFile')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide the song file'),
-    handleValidationErrors,
-];
+        handleValidationErrors,
+    ];
+    // check('songFile')
+    //     .exists({ checkFalsy: true })
+    //     .withMessage('Please provide the song file'),
 
 
 router.get('/',asyncHandler(async (req, res) => {
-    console.log("hitting route---------------------")
         const songs = await Song.findAll({
             order: [["createdAt", "DESC"]],
         })
@@ -39,15 +39,17 @@ router.get('/',asyncHandler(async (req, res) => {
     }),
 );
 
+
 router.post(
     '/',
-    singleMulterUpload("song"),
+    singleMulterUpload("songFile"),
     validateSongCreate,
     asyncHandler(async (req, res) => {
-        const { name, artist} = req.body;
+        const { name, artist, userId} = req.body;
+        console.log("req",req)
         const location = await singlePublicFileUpload(req.file)
-        const song = await Song.songPOST({ name, artist, filePath: location});
-        // await setTokenCookie(res, user);
+        const song = await Song.upload({ name, artist, filePath: location, userId});
+
         return res.json({
             song
         });

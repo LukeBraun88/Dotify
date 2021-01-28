@@ -4,10 +4,11 @@ li {
 
 .button_container {
      display: flex;
-     flex-direction: column;
     color: white;
-    justify-content: center;
-    position: relative;
     font-size: 12px;
-    right:30px;
+}
+
+.dropdown-button{
+    width:30px;
+    height:30px;
 }

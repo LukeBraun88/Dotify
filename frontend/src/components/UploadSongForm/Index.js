@@ -1,13 +1,13 @@
-import "./AddSong.css"
 
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as songActions from "../../store/songs"
 
 export default function UploadSongForm() {
     const dispatch = useDispatch();
-    // const sessionUser = useSelector((state) => state.session.user);
+    const sessionUser = useSelector((state) => state.session.user);
     const [name, setName] = useState("");
     const [artist, setArtist] = useState("");
     // const [filePath, setFilePath] = useState("");
@@ -19,7 +19,8 @@ export default function UploadSongForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         let newErrors = [];
-        return dispatch(createSong({ name, artist, songFile }))
+        const userId = sessionUser.id
+        return dispatch(songActions.createSong({ name, artist, songFile, userId}))
             .then(() => {
                 setName("");
                 setArtist("");
@@ -36,8 +37,11 @@ export default function UploadSongForm() {
 
     };
 
+    // console.log("sessionUser",sessionUser.id)
 
     //TODO useEffect to getSongs
+
+    
 
 
     const updateFile = (e) => {

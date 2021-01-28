@@ -1,4 +1,4 @@
-// import { fetch } from './csrf';
+import { fetch } from './csrf';
 // import {fetch} from "node-fetch"
 const SET_SONGS = 'songs/setSongs';
 const ADD_SONG = 'songs/addSong'
@@ -21,11 +21,13 @@ export const addSong = (song) => {
 
 //thunk which accepts an object of key value pairs and turns them into FormData entries to send with your request.
 export const createSong = (song) => async (dispatch) => {
-    const { name, artist, songFile } = song; //can add images if multiple
+    const { name, artist, songFile, userId } = song; //can add images if multiple
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("artist", artist);
     formData.append("songFile", songFile);
+    formData.append("userId", userId);
 
     // for multiple files
     // if (images && images.length !== 0) {
@@ -35,7 +37,7 @@ export const createSong = (song) => async (dispatch) => {
     // }
 
     // for single file
-
+    await console.log("formData",formData)
     const res = await fetch(`/api/songs/`, {
         headers: {
             "Content-Type": "multipart/form-data",
@@ -43,23 +45,11 @@ export const createSong = (song) => async (dispatch) => {
         method: "POST",
         body: formData,
     });
+    // console.log("--------------",res.data.song)
     dispatch(setSongs(res.data.song));
 };
 
-export const songPOST = (song) => async (dispatch) => {
-    const {name, artist, filePath, songFile}  = song; //gets the username, email, and password inputs
-    const response = await fetch("/api/songs", { //hits signup backend route to post the user info
-        method: "POST",
-        body: JSON.stringify({
-            name,
-            artist,
-            filePath,
-            songFile
-        }),
-    });
-    dispatch(setSongs(response.data.song)); //dispatch the action for setting the session user state
-    return response;
-};
+
 
 
 //this is the thunk that
@@ -70,11 +60,12 @@ export const songPOST = (song) => async (dispatch) => {
 //         - action runs in reducer which updates state
 
 export const getSongs = () => async dispatch => {
-    // console.log("gettingSongs----------------------------")
     const res = await fetch('/api/songs');
-    const json = await res.json()
+    console.log("res",res)
+    // const json = await res.json()
     // console.log("json",json)
-    const songs = json.songs
+    const songs = res.data.songs
+    // const songs = json.songs
     // console.log("songs",songs)
     let normalizedSongs = {}
     for (let i =0; i<songs.length; i++){
