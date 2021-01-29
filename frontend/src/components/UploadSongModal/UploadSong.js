@@ -28,6 +28,7 @@ export function UploadSong() {
                 // setFilePath("");
                 setSongFile(null);
                 // history.push("/")
+                dispatch(songActions.getSongs())
             })
             .catch((res) => {
                 if (res.data && res.data.errors) {

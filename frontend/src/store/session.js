@@ -29,7 +29,6 @@ export const createUser = (user) => async (dispatch) => {
 
     // for single file
     if (image) formData.append("image", image);
-    console.log(formData)
     const res = await fetch(`/api/users/`, {
         headers: {
             "Content-Type": "multipart/form-data",

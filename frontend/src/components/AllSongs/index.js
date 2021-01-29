@@ -20,42 +20,44 @@ import {NavLink} from 'react-router-dom'
     const likes = useSelector((state) => state.likes);
 
     // when the page is loaded, my songs are updated
+
+    const [loaded, setLoaded] = useState(false)
+
     useEffect(() => {
         dispatch(songActions.getSongs())
+        dispatch(likesActions.getLikes())
+
     }, [])
 
 
     function likeSong(songId){
         let newErrors = [];
-        // console.log("sessionUser",sessionUser)
         const userId = sessionUser.id
-        // console.log("userId",userId)
-        // console.log("songId",songId)
-        return dispatch(likeActions.createLike({ userId, songId }))
+        dispatch(likeActions.createLike({ userId, songId }))
+        dispatch(likesActions.getLikes())
     }
     function unLikeSong(songId){
 
-        // console.log("sessionUser",sessionUser)
         const userId = sessionUser.id
-        console.log("likes",likes)
+        dispatch(likeActions.deleteLikeStore({ userId, songId }))
+        dispatch(likesActions.getLikes())
         // dispatch(likeActions.removeLike({}))
-        // console.log("userId",userId)
-        // console.log("songId",songId)
         // return dispatch(likeActions.createLike({ userId, songId }))
     }
     function deleteSong(songId){
         let newErrors = [];
         // const userId = sessionUser.id
-        console.log(likeActions)
-        return dispatch(songActions.removeSong({ songId }))
+        return dispatch(songActions.deleteSongStore( songId ))
     }
+
 
     return(
         <>
-        <div className="all-songs">Songs:
-        {songs.map(song=>{
-        <li key={song.id}>
-                <h2>{song.name}</h2>
+        <div className="all-songs">
+        {songs.map(song=>
+        (<li className="song-lists" key={song.id}>
+
+                <h2>{song.name}</h2><p>{song.artist}</p>
                 <audio controls className="music-controls">
                     <source src={song.filePath} type="audio/mp3" />
                 </audio>
@@ -68,8 +70,8 @@ import {NavLink} from 'react-router-dom'
                 <button value={song.id} onClick={()=>deleteSong(song.id)}>
                     <i value={song.id} class="fas fa-times removeSong"></i>
                 </button>
-        </li>
-  } )}
+        </li>))
+   }
             </div>
         </>
         )

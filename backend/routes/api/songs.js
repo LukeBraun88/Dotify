@@ -8,8 +8,9 @@ const router = express.Router();
 const  {Song, User} = require("../../db/models")
 const { handleValidationErrors } = require('../../utils/validation');
 const { check } = require('express-validator');
-const { singlePublicFileUpload, singleMulterUpload } = require("../../awsS3")
+const { singlePublicFileUpload, singleMulterUpload, removeFile } = require("../../awsS3")
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const song = require('../../db/models/song');
 
 //Restore session user
 
@@ -33,9 +34,21 @@ router.get('/',asyncHandler(async (req, res) => {
         const songs = await Song.findAll({
             order: [["createdAt", "DESC"]],
         })
+        await
         res.json({
             songs,
         });
+    }),
+);
+
+router.delete('/:id(\\d+)',asyncHandler(async (req, res) => {
+    const songId = parseInt(req.params.id, 10);
+    const song = await Song.findByPk(songId);
+        await removeFile(song.key)
+        await song.destroy()
+        res.json({
+            message:"the song was deleted"
+        })
     }),
 );
 
@@ -46,9 +59,8 @@ router.post(
     validateSongCreate,
     asyncHandler(async (req, res) => {
         const { name, artist, userId} = req.body;
-        console.log("req",req)
-        const location = await singlePublicFileUpload(req.file)
-        const song = await Song.upload({ name, artist, filePath: location, userId});
+        const {location, key} = await singlePublicFileUpload(req.file)
+        const song = await Song.upload({ name, artist, filePath: location, key, userId});
 
         return res.json({
             song

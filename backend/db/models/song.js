@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    key: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     userId: {
       type: DataTypes.INTEGER,
       // allowNull:false
@@ -30,11 +34,12 @@ module.exports = (sequelize, DataTypes) => {
     Song.belongsTo(models.User, { foreignKey: "userId" })
   };
 
-  Song.upload = async function ({ name, artist, filePath, userId}) {
+  Song.upload = async function ({ name, artist, filePath, key, userId}) {
     const song = await Song.create({
       name,
       artist,
       filePath,
+      key,
       userId
     });
     return await Song.findByPk(song.id);

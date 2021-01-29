@@ -10,11 +10,22 @@ module.exports = (sequelize, DataTypes) => {
     songId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
+
+
   }, {});
   Like.associate = function(models) {
     Like.belongsTo(models.User, {foreignKey: "userId"})
     Like.belongsTo(models.Song, {foreignKey: "songId"})
   };
   return Like;
-};
+},
+{
+  indexes: [
+    // Create a unique index on email
+    {
+      unique: true,
+      fields: ['songId', 'userId']
+    },
+  ]};
+

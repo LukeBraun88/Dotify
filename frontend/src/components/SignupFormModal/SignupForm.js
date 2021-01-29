@@ -32,7 +32,6 @@ function SignupForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         let newErrors = [];
-        console.log("submit",image)
         return dispatch(createUser({ username, email, password, image }))
             .then(() => {
                 setUsername("");

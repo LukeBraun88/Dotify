@@ -19,6 +19,14 @@ export const removeSong = (songId) => {
 }
 
 
+export const deleteSongStore = (songId) => async (dispatch)=>{
+    const res = await fetch(`api/songs/${songId}`,{
+        method: "DELETE"
+    })
+    dispatch(removeSong(songId))
+}
+
+
 
 //thunk which accepts an object of key value pairs and turns them into FormData entries to send with your request.
 export const createSong = (song) => async (dispatch) => {
@@ -38,7 +46,6 @@ export const createSong = (song) => async (dispatch) => {
     // }
 
     // for single file
-    await console.log("formData",formData)
     const res = await fetch(`/api/songs/`, {
         headers: {
             "Content-Type": "multipart/form-data",
@@ -46,8 +53,8 @@ export const createSong = (song) => async (dispatch) => {
         method: "POST",
         body: formData,
     });
-    // console.log("--------------",res.data.song)
-    dispatch(setSongs(res.data.song));
+
+    // dispatch(setSongs(res.data.song));
 };
 
 
@@ -81,12 +88,8 @@ export const songsReducer = (state = initialState, action) => {
             newState = Object.assign({}, state, action.payload);
             return newState;
         case REMOVE_SONG:
-            console.log("state",state)
-            console.log("action.payload",action.payload.songId)
-            // console.log("songId",songId)
-
             newState = { ...state }
-            delete newState[action.payload.songId]
+            delete newState[action.payload]
             return newState;
         default:
             return state;

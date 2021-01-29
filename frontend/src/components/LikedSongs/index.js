@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react'
 import * as songActions from "../../store/songs"
 import * as currentSongActions from "../../store/currentSong"
+import * as likesActions from "../../store/likes"
 import { NavLink } from 'react-router-dom'
 
 
@@ -17,6 +18,7 @@ const [loaded,setLoaded] = useState(false)
     // when the page is loaded, my songs are updated
     useEffect(() => {
         dispatch(songActions.getSongs())
+        dispatch(likesActions.getLikes())
         setLoaded(true)
     }, [])
 
@@ -25,7 +27,6 @@ const [loaded,setLoaded] = useState(false)
 
 
 
-    console.log("songs:", songs)
     return (
         <>
             <div className="all-songs">Songs:

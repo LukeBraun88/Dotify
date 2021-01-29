@@ -1,12 +1,20 @@
 .all-songs {
     display: flex;
-    /* width: 100%; */
+    width: 100px;
     /* height: 100px; */
     position: relative;
     left: 200px;
-    top: 500px;
+    top: 200px;
+    color:white;
+    /* padding:20px; */
+    padding-left: 100px;;
+    flex-direction: column;
 }
 
 .unLike{
     color:red;
+}
+
+.song-lists {
+    padding: 10px;
 }

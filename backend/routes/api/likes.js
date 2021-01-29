@@ -18,7 +18,32 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 //         });
 //     }),
 // );
+router.get('/', asyncHandler(async (req, res) => {
+    const likes = await Like.findAll({
+        order: [["createdAt", "DESC"]],
+    })
+    await
+        res.json({
+            likes,
+        });
+}),
+);
 
+router.delete('/:id(\\d+)/:id2(\\d+)', asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const songId = parseInt(req.params.id2, 10);
+    const like = await Like.findOne({
+        where: {
+            userId: userId,
+            songId: songId
+        }
+    })
+    await like.destroy()
+    res.json({
+        like
+    })
+}),
+);
 
 router.post(
     '/',
@@ -29,13 +54,12 @@ router.post(
         //     userId: userId,
         //     songId:songId
         // }})
+
         // if(likes) {
         //     throw new Error(()=>"already liked")
         // }
-        // .catch()
-
         const like = await Like.create({ songId, userId});
-        return res.json({like})
+        await res.json({like})
     })
 )
 

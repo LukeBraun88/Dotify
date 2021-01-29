@@ -18,6 +18,16 @@ export const removeLike = (likeId) => {
     };
 };
 
+
+export const deleteLikeStore = ({ userId, songId }) => async (dispatch) => {
+    const res = await fetch(`api/likes/${userId}/${songId}`, {
+        method: "DELETE"
+    })
+    console.log("deleteLikeStore res",res)
+    dispatch(removeLike(res))
+}
+
+
 export const createLike = (like) => async (dispatch) => {
     const { userId, songId } = like; //gets the username, email, and password inputs
     const response = await fetch("/api/likes", { //hits signup backend route to post the user info
@@ -27,7 +37,7 @@ export const createLike = (like) => async (dispatch) => {
             songId
         }),
     });
-    dispatch(setLikes(response.data.like)); //dispatch the action for setting the session user state
+    // dispatch(setLikes(response.data.like)); //dispatch the action for setting the session user state
     return response;
 };
 
@@ -45,6 +55,17 @@ export const createLike = (like) => async (dispatch) => {
 // };
 
 
+export const getLikes = () => async dispatch => {
+    const res = await fetch('/api/likes');
+    const likes = res.data.likes
+    let normalizedLikes = {}
+    for (let i = 0; i < likes.length; i++) {
+        const like = likes[i]
+        normalizedLikes[like.id] = like
+    }
+    dispatch(setLikes(normalizedLikes))
+};
+
 const initialState = {};
 
 //holds the current session user's information
@@ -52,10 +73,11 @@ const likesReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_LIKES:
-            newState = {...state, like: action.payload}
+            newState = {...state,...action.payload}
             return newState;
         case REMOVE_LIKE:
             newState = {...state}
+            console.log("action.payload",action.payload)
             delete newState[action.likeId]
             return newState;
         default:

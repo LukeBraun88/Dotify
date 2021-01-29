@@ -11,6 +11,24 @@ const multer = require("multer");
 
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
+async function removeFile(key){
+  var bucketInstance = new AWS.S3({ apiVersion: "2006-03-01" });
+  var params = { Bucket: 'lukes-bucket-88', Key: key };
+  console.log("params",params)
+  try {
+    await bucketInstance.deleteObject(params)
+    console.log("----------------deleted--------------")
+  } catch (error) {
+    console.log("ERROR:",error)
+  }
+}
+
+
+//---------------------- REMOVE FILE -------------------------------
+
+
+
+
 // --------------------------- Public UPLOAD ------------------------
 
 const singlePublicFileUpload = async (file) => {
@@ -26,8 +44,9 @@ const singlePublicFileUpload = async (file) => {
   };
   const result = await s3.upload(uploadParams).promise();
   const location = result.Location
+  const key = result.key
   // save the name of the file in your bucket as the key in your database to retrieve for later
-  return location;
+  return {location, key};
 };
 
 const multiplePublicFileUpload = async (files) => {
@@ -97,4 +116,5 @@ module.exports = {
   retrievePrivateFile,
   singleMulterUpload,
   multipleMulterUpload,
+  removeFile
 };
