@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react'
 import * as songActions from "../../store/songs"
 import * as likeActions from "../../store/likes"
 import * as currentSongActions from "../../store/currentSong"
+import * as likesActions from "../../store/likes"
 import "./AllSongs.css"
 import {NavLink} from 'react-router-dom'
 
@@ -16,38 +17,59 @@ import {NavLink} from 'react-router-dom'
     //we are getting my current songs state
     const songs = useSelector((state) => Object.values(state.songs));
     const sessionUser = useSelector((state) => state.session.user);
+    const likes = useSelector((state) => state.likes);
 
     // when the page is loaded, my songs are updated
     useEffect(() => {
         dispatch(songActions.getSongs())
     }, [])
 
-    const [likes,setLikes] = useState([])
 
     function likeSong(songId){
         let newErrors = [];
-        console.log("sessionUser",sessionUser)
+        // console.log("sessionUser",sessionUser)
         const userId = sessionUser.id
-        console.log("userId",userId)
-        console.log("songId",songId)
+        // console.log("userId",userId)
+        // console.log("songId",songId)
         return dispatch(likeActions.createLike({ userId, songId }))
     }
+    function unLikeSong(songId){
 
-    console.log("songs:",songs)
+        // console.log("sessionUser",sessionUser)
+        const userId = sessionUser.id
+        console.log("likes",likes)
+        // dispatch(likeActions.removeLike({}))
+        // console.log("userId",userId)
+        // console.log("songId",songId)
+        // return dispatch(likeActions.createLike({ userId, songId }))
+    }
+    function deleteSong(songId){
+        let newErrors = [];
+        // const userId = sessionUser.id
+        console.log(likeActions)
+        return dispatch(songActions.removeSong({ songId }))
+    }
+
     return(
         <>
         <div className="all-songs">Songs:
-        {songs.map(song=>
-        <li>
+        {songs.map(song=>{
+        <li key={song.id}>
                 <h2>{song.name}</h2>
                 <audio controls className="music-controls">
                     <source src={song.filePath} type="audio/mp3" />
                 </audio>
                 <button value={song.id} onClick={()=>likeSong(song.id)}>
-                    <i value={song.id} class="fas fa-heart"></i>
+                    <i value={song.id} class="fas fa-heart Like"></i>
+                </button>
+                <button value={song.id} onClick={()=>unLikeSong(song.id)}>
+                    <i value={song.id} class="fas fa-heart unLike"></i>
+                </button>
+                <button value={song.id} onClick={()=>deleteSong(song.id)}>
+                    <i value={song.id} class="fas fa-times removeSong"></i>
                 </button>
         </li>
-            )}
+  } )}
             </div>
         </>
         )

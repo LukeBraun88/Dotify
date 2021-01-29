@@ -13,7 +13,7 @@ export function UploadSong() {
     // const [filePath, setFilePath] = useState("");
     const [songFile, setSongFile] = useState(null);
     const [errors, setErrors] = useState([]);
-
+    // const [showModal, setShowModal] = useState(true);
     const history = useHistory()
 
     const handleSubmit = (e) => {
@@ -24,6 +24,7 @@ export function UploadSong() {
             .then(() => {
                 setName("");
                 setArtist("");
+                // setShowModal(false)
                 // setFilePath("");
                 setSongFile(null);
                 // history.push("/")

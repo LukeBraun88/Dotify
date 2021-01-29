@@ -24,7 +24,16 @@ router.post(
     '/',
     asyncHandler(async (req, res) => {
         const { songId, userId} = req.body;
-        console.log("req",req)
+        // console.log("req",req)
+        // let likes = await Like.findAll({where: {
+        //     userId: userId,
+        //     songId:songId
+        // }})
+        // if(likes) {
+        //     throw new Error(()=>"already liked")
+        // }
+        // .catch()
+
         const like = await Like.create({ songId, userId});
         return res.json({like})
     })

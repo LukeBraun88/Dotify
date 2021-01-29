@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage"
 import LikedSongs from "./components/LikedSongs"
 import AllSongs from "./components/AllSongs";
-import UploadSongForm from "./components/UploadSongModal/Index";
+import UploadSongForm from "./components/UploadSongModal";
 import UploadSongModal from "./components/UploadSongModal/UploadSong";
 
 function App() {

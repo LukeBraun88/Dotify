@@ -1,7 +1,7 @@
 import { fetch } from './csrf';
 // import {fetch} from "node-fetch"
-const SET_SONGS = 'songs/setSongs';
-const ADD_SONG = 'songs/addSong'
+const SET_SONGS = 'songs/SET_SONGS';
+const REMOVE_SONG = 'songs/REMOVE_SONG'
 
 //action creater that sets the song in the song slice of state
 export const setSongs = (songs) => {
@@ -11,12 +11,13 @@ export const setSongs = (songs) => {
     };
 };
 
-export const addSong = (song) => {
+export const removeSong = (songId) => {
     return {
-        type: ADD_SONG,
-        payload: song,
+        type: REMOVE_SONG,
+        payload: songId,
     };
 }
+
 
 
 //thunk which accepts an object of key value pairs and turns them into FormData entries to send with your request.
@@ -61,12 +62,7 @@ export const createSong = (song) => async (dispatch) => {
 
 export const getSongs = () => async dispatch => {
     const res = await fetch('/api/songs');
-    console.log("res",res)
-    // const json = await res.json()
-    // console.log("json",json)
     const songs = res.data.songs
-    // const songs = json.songs
-    // console.log("songs",songs)
     let normalizedSongs = {}
     for (let i =0; i<songs.length; i++){
         const song = songs[i]
@@ -83,6 +79,14 @@ export const songsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_SONGS:
             newState = Object.assign({}, state, action.payload);
+            return newState;
+        case REMOVE_SONG:
+            console.log("state",state)
+            console.log("action.payload",action.payload.songId)
+            // console.log("songId",songId)
+
+            newState = { ...state }
+            delete newState[action.payload.songId]
             return newState;
         default:
             return state;

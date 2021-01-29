@@ -4,31 +4,35 @@
     top:60px;
 }
 
-.sidebar-links li a {
+.link, .upload {
     height: 40px;
     font-weight: bold;
     font-size: 14px;
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    margin: 0 10px;
+    padding: 0px;
+    margin: 0px;
+    color: #bebebe;
+    text-decoration: none;
 }
 
-
-.sidebar-links>li>a {
-    color: #B3B3B3;
-    transition-duration: 0.3s;
+.link:hover {
+    color:white;
+    font-size: 102%;
 }
+.upload:hover {
+    color:white;
+}
+
 
 .sidebar {
     background-color: #000000;
-    font-family: Arial, Helvetica, sans-serif;
     height: 90vh;
-    width: 235px;
+    width: 230px;
     z-index:1;
 }
 
-.sidebar-links li a i {
-    margin-right: 17px;
+i {
+    padding-right: 17px;
     font-size: 20px;
 }
