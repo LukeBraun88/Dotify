@@ -1,5 +1,8 @@
 import "./Sidebar.css"
 import { NavLink } from 'react-router-dom'
+import UploadSongModal from "../UploadSongModal"
+
+
 
 export default function Sidebar(){
     return(
@@ -9,6 +12,8 @@ export default function Sidebar(){
                 <li><NavLink to="/"><i class="fas fa-home"></i>Home</NavLink></li>
                 <li><NavLink to="/"><i class="fas fa-search"></i>Search</NavLink></li>
                 <li><NavLink to="/liked"><i class="fas fa-book-open"></i>Liked Songs</NavLink></li>
+                
+
             </ul>
             <div className="seperator"></div>
         </div>

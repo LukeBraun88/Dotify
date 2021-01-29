@@ -15,6 +15,7 @@ import {NavLink} from 'react-router-dom'
 
     //we are getting my current songs state
     const songs = useSelector((state) => Object.values(state.songs));
+    const sessionUser = useSelector((state) => state.session.user);
 
     // when the page is loaded, my songs are updated
     useEffect(() => {
@@ -25,7 +26,10 @@ import {NavLink} from 'react-router-dom'
 
     function likeSong(songId){
         let newErrors = [];
+        console.log("sessionUser",sessionUser)
         const userId = sessionUser.id
+        console.log("userId",userId)
+        console.log("songId",songId)
         return dispatch(likeActions.createLike({ userId, songId }))
     }
 
@@ -39,8 +43,8 @@ import {NavLink} from 'react-router-dom'
                 <audio controls className="music-controls">
                     <source src={song.filePath} type="audio/mp3" />
                 </audio>
-                <button value={song.id} onClick={(e)=>likeSong(e.target.value)}>
-                    <i class="fas fa-heart"></i>
+                <button value={song.id} onClick={()=>likeSong(song.id)}>
+                    <i value={song.id} class="fas fa-heart"></i>
                 </button>
         </li>
             )}

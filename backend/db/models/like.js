@@ -6,16 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     userId:{
       type:DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [3,25]
-      }
     },
     songId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [3, 25]
-      }
     }
   }, {});
   Like.associate = function(models) {

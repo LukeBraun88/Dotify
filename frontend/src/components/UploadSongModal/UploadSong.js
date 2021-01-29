@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as songActions from "../../store/songs"
 
-export default function UploadSongForm() {
+export function UploadSong() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [name, setName] = useState("");
@@ -20,13 +20,13 @@ export default function UploadSongForm() {
         e.preventDefault();
         let newErrors = [];
         const userId = sessionUser.id
-        return dispatch(songActions.createSong({ name, artist, songFile, userId}))
+        return dispatch(songActions.createSong({ name, artist, songFile, userId }))
             .then(() => {
                 setName("");
                 setArtist("");
                 // setFilePath("");
                 setSongFile(null);
-                history.push("/")
+                // history.push("/")
             })
             .catch((res) => {
                 if (res.data && res.data.errors) {
@@ -41,7 +41,7 @@ export default function UploadSongForm() {
 
     //TODO useEffect to getSongs
 
-    
+
 
 
     const updateFile = (e) => {

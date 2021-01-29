@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
       </div>
       {sessionUser ?
       <div className="dropdown-container">
-              <li><img src={sessionUser.profileImageUrl}></img></li>
+              {/* <li><img src={sessionUser.profileImageUrl}></img></li> */}
               <li><ProfileButton user={sessionUser} /></li>
       </div>:
           (<div className="right-links">

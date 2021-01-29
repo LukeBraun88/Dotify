@@ -7,6 +7,7 @@ import Sidebar from "../Sidebar"
 import Navigation from "../Navigation"
 import AllSongs from "../AllSongs"
 
+
 function HomePage() {
     return (
         <>

@@ -8,7 +8,8 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage"
 import LikedSongs from "./components/LikedSongs"
 import AllSongs from "./components/AllSongs";
-import UploadSongForm from "./components/UploadSongForm/Index";
+import UploadSongForm from "./components/UploadSongModal/Index";
+import UploadSongModal from "./components/UploadSongModal/UploadSong";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function App() {
           {!sessionUser ? <Navigation isLoaded={isLoaded} /> :
       isLoaded && (
         <Switch>
-        <Navigation isLoaded={isLoaded} />
+        {/* <Navigation isLoaded={isLoaded} /> */}
           <Route exact path="/">
               <HomePage />
           </Route>
