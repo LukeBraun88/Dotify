@@ -57,19 +57,23 @@ import {NavLink} from 'react-router-dom'
         {songs.map(song=>
         (<li className="song-lists" key={song.id}>
 
-                <h2>{song.name}</h2><p>{song.artist}</p>
+                <h2 className="song-title">{song.name}</h2>
+                <p className="song-artist">{song.artist}</p>
                 <audio controls className="music-controls">
                     <source src={song.filePath} type="audio/mp3" />
                 </audio>
-                <button value={song.id} onClick={()=>likeSong(song.id)}>
-                    <i value={song.id} class="fas fa-heart Like"></i>
+                <div className="options">
+                <button value={song.id} onClick={() => likeSong(song.id)}>
+                    <i className="fas fa-heart Like song-icon" value={song.id}></i>
                 </button>
-                <button value={song.id} onClick={()=>unLikeSong(song.id)}>
-                    <i value={song.id} class="fas fa-heart unLike"></i>
+                <button value={song.id} onClick={() => unLikeSong(song.id)}>
+                    <i className="fas fa-heart unLike song-icon" value={song.id}></i>
                 </button>
-                <button value={song.id} onClick={()=>deleteSong(song.id)}>
-                    <i value={song.id} class="fas fa-times removeSong"></i>
+                <button value={song.id} onClick={() => deleteSong(song.id)}>
+                    <i className="fas fa-times removeSong song-icon" value={song.id} ></i>
                 </button>
+                </div>
+
         </li>))
    }
             </div>

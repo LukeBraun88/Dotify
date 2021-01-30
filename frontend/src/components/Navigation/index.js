@@ -21,7 +21,7 @@ function Navigation({ isLoaded }) {
     <div className="navbar">
       <ul className="navbar-list">
       <div className="left-links">
-          <li className="link"><NavLink className="home navlink" exact to="/" >Dotify</NavLink></li>
+          <li className=""><NavLink className="home navlink" exact to="/" >Dotify</NavLink></li>
       </div>
       {sessionUser ?
       <div className="dropdown-container">
@@ -30,8 +30,8 @@ function Navigation({ isLoaded }) {
       </div>:
           (<div className="right-links">
             <li className="seperator">|</li>
-            <li className="link signup">{isLoaded && <SignupFormModal />}</li>
-            <li className="link">{isLoaded && <LoginFormModal />}</li>
+            <li className=" ">{isLoaded && <SignupFormModal />}</li>
+            <li className="">{isLoaded && <LoginFormModal />}</li>
           </div>)
         }
       </ul>

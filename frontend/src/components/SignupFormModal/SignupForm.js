@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 // import * as sessionActions from "../../store/session";
 import './SignupForm.css';
-import {createUser} from "../../store/session"
+import { createUser } from "../../store/session"
 
 
 function SignupForm() {
@@ -55,51 +55,56 @@ function SignupForm() {
     };
 
     return (
-        <form className="pure-form-stacked login" onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Email
+        <>
+        <div className="signup-container">
+            <form className="signup pure-form-stacked" onSubmit={handleSubmit}>
+                <label>
+                    Email
         <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Username
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Username
         <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                <input type="file" onChange={updateFile} />
-            </label>
-            <label>
-                Password
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </label>
+                <label >
+                    <input className="file"type="file" onChange={updateFile} />
+                </label>
+                <label>
+                    Password
         <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Confirm Password
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Confirm Password
         <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <button type="submit">Sign Up</button>
+            </form>
+        <ul className="errorList-signup">
+                    {errors.map((error, idx) =><li className="errors-signup" key={idx}>{error}</li>)}
+
+                </ul>
+        </div>
+                </>
     );
 }
 

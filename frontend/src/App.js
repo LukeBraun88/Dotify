@@ -26,7 +26,7 @@ function App() {
           {!sessionUser ? <Navigation isLoaded={isLoaded} /> :
       isLoaded && (
         <Switch>
-        {/* <Navigation isLoaded={isLoaded} /> */}
+        <Navigation />
           <Route exact path="/">
               <HomePage />
           </Route>

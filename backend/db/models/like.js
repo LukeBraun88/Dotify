@@ -12,20 +12,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 
+  },
+    {
+      uniqueKeys: {
+        actions_unique: {
+          fields: ['userId', 'songId']
+        }
+      }
+    }
+  );
 
-  }, {});
   Like.associate = function(models) {
     Like.belongsTo(models.User, {foreignKey: "userId"})
     Like.belongsTo(models.Song, {foreignKey: "songId"})
   };
   return Like;
-},
-{
-  indexes: [
-    // Create a unique index on email
-    {
-      unique: true,
-      fields: ['songId', 'userId']
-    },
-  ]};
 
+}
