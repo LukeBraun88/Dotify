@@ -23,7 +23,6 @@
     display: flex;
     flex-direction: column;
     z-index:7;
-    /* align-items: center; */
 }
 
 .options {
@@ -37,11 +36,17 @@
     margin:2px
 }
 
-/* .song-icon {
-    width:1px;
+.song-icon {
+    width:0px;
 
-} */
+}
 
+.song-button {
+    width:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .music {
     overflow-x: hidden;

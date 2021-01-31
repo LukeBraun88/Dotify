@@ -29,7 +29,7 @@ router.get('/', asyncHandler(async (req, res) => {
 }),
 );
 
-router.get(`/songs//:id(\\d+)`, asyncHandler(async (req, res) => {
+router.get(`/songs/:id(\\d+)`, asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const userLikes = await Like.findAll({
         where:{
@@ -37,13 +37,14 @@ router.get(`/songs//:id(\\d+)`, asyncHandler(async (req, res) => {
         },
         order: [["createdAt", "DESC"]],
     })
-    const songs = await userLikes.map(like=>like.songId)
-
-    const likedSongs = await Song.findAll({
+    const songsId = await userLikes.map(like=>like.songId)
+    // console.log("songs",songs)
+    const songs = await Song.findAll({
         where: {
-
+            id: songsId
         }
     })
+    // console.log("likedSongs",likedSongs)
     await
         res.json({
             songs,

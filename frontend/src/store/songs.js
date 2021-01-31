@@ -70,11 +70,13 @@ export const createSong = (song) => async (dispatch) => {
 export const getSongs = () => async dispatch => {
     const res = await fetch('/api/songs');
     const songs = res.data.songs
+    console.log("songs-----", songs)
     let normalizedSongs = {}
     for (let i =0; i<songs.length; i++){
         const song = songs[i]
         normalizedSongs[song.id] = song
     }
+    console.log("normalizedSongs", normalizedSongs)
     dispatch(setSongs(normalizedSongs))
 };
 

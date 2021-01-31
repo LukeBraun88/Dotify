@@ -15,11 +15,13 @@ export const setLikedSongs = (songs) => {
 export const getLikedSongs = (userId) => async dispatch => {
     const res = await fetch(`/api/likes/songs/${userId}`);
     const songs = res.data.songs
+    console.log("songs-----likes", songs)
     let normalizedSongs = {}
     for (let i = 0; i < songs.length; i++) {
         const song = songs[i]
         normalizedSongs[song.id] = song
     }
+    console.log("normalizedLikedSongs",normalizedSongs)
     dispatch(setLikedSongs(normalizedSongs))
 };
 

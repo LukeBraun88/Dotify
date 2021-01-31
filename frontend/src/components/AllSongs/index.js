@@ -5,6 +5,7 @@ import * as songActions from "../../store/songs"
 import * as likeActions from "../../store/likes"
 import * as currentSongActions from "../../store/currentSong"
 import * as likesActions from "../../store/likes"
+import * as likedSongsActions from "../../store/likedSongs"
 import "./AllSongs.css"
 import {NavLink} from 'react-router-dom'
 
@@ -23,11 +24,13 @@ import {NavLink} from 'react-router-dom'
 
     const [loaded, setLoaded] = useState(false)
 
+
     useEffect(() => {
         dispatch(songActions.getSongs())
-        dispatch(likesActions.getLikes())
 
-    }, [])
+        dispatch(likesActions.getLikes())
+        dispatch(likedSongsActions.getLikedSongs(sessionUser.id))
+    }, [dispatch])
 
 
     function likeSong(songId){
@@ -66,13 +69,13 @@ import {NavLink} from 'react-router-dom'
                     <source src={song.filePath} type="audio/mp3" />
                 </audio>
                 <div className="options">
-                <button value={song.id} onClick={() => likeSong(song.id)}>
+                <button className="song-button" value={song.id} onClick={() => likeSong(song.id)}>
                     <i className="fas fa-heart Like song-icon" value={song.id}></i>
                 </button>
-                <button value={song.id} onClick={() => unLikeSong(song.id)}>
+                <button className="song-button" value={song.id} onClick={() => unLikeSong(song.id)}>
                     <i className="fas fa-heart unLike song-icon" value={song.id}></i>
                 </button>
-                <button value={song.id} onClick={() => deleteSong(song.id)}>
+                <button className="song-button" value={song.id} onClick={() => deleteSong(song.id)}>
                     <i className="fas fa-times removeSong song-icon" value={song.id} ></i>
                 </button>
                 </div>
