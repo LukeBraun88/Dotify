@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import {useHistory} from "react-router-dom"
 import "./LoginForm.css"
 
 function LoginForm() {
@@ -8,6 +9,8 @@ function LoginForm() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +20,19 @@ function LoginForm() {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
+    history.push("/")
+  };
+
+  const demoLogin = () => {
+    // e.preventDefault();
+setErrors([]);
+dispatch(sessionActions.login({ credential: "demo@user.com", password: "DemoUser" }))
+    history.push("/")
   };
 
   return (
     <div className="login-container">
+      <h2 className="login-title">Login</h2>
       <form className="login pure-form-stacked" onSubmit={handleSubmit}>
       <label>
           Username or Email
@@ -42,8 +54,10 @@ function LoginForm() {
           required
         />
         </label>
-
-      <button type="submit">Log In</button>
+    <div className="buttons">
+      <button className="login-button" type="submit">Log In</button>
+          <button className="login-button" type="button" onClick={()=>demoLogin()}>Demo</button>
+    </div>
     </form>
       <ul className="errorList-login">
         {errors.map((error, idx) => (

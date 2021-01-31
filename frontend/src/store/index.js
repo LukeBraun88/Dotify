@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import {songsReducer} from "./songs"
 import { currentSongReducer} from "./currentSong"
 import likesReducer from "./likes";
+import {likedSongsReducer} from "./likedSongs"
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   songs: songsReducer,
   currentSong: currentSongReducer,
   likes: likesReducer,
+  likedSongs: likedSongsReducer
 });
 
 let enhancer;

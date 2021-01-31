@@ -29,6 +29,28 @@ router.get('/', asyncHandler(async (req, res) => {
 }),
 );
 
+router.get(`/songs//:id(\\d+)`, asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const userLikes = await Like.findAll({
+        where:{
+            userId:userId
+        },
+        order: [["createdAt", "DESC"]],
+    })
+    const songs = await userLikes.map(like=>like.songId)
+
+    const likedSongs = await Song.findAll({
+        where: {
+
+        }
+    })
+    await
+        res.json({
+            songs,
+        });
+}),
+);
+
 router.delete('/:id(\\d+)/:id2(\\d+)', asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const songId = parseInt(req.params.id2, 10);

@@ -6,11 +6,18 @@
      display: flex;
     color: white;
     font-size: 12px;
+    position:fixed;
+    top: 12px;
 }
 
 .dropdown-button{
-    width:30px;
+    width:35px;
     height:30px;
+    /* border-radius: 10px; */
 }
 
 
+/* .circle {
+    width:10px;
+    border-radius: 50px;
+} */

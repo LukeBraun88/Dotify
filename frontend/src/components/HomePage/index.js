@@ -12,13 +12,7 @@ import AllSongs from "../AllSongs"
 function HomePage() {
     return (
         <>
-            <div className="container">
-                <Sidebar />
-                <div class="music">
-                        <AllSongs />
-                </div>
-                <MusicBar />
-            </div>
+            
         </>
     )
 }

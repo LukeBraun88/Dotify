@@ -53,6 +53,9 @@ import {NavLink} from 'react-router-dom'
 
     return(
         <>
+            <div className="container">
+<div className="music">
+
         <div className="all-songs">
         {songs.map(song=>
         (<li className="song-lists" key={song.id}>
@@ -76,6 +79,9 @@ import {NavLink} from 'react-router-dom'
 
         </li>))
    }
+            </div>
+                </div>
+
             </div>
         </>
         )

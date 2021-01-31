@@ -57,6 +57,7 @@ function SignupForm() {
     return (
         <>
         <div className="signup-container">
+            <h2 className="signup-title">Sign Up</h2>
             <form className="signup pure-form-stacked" onSubmit={handleSubmit}>
                 <label>
                     Email
@@ -97,7 +98,7 @@ function SignupForm() {
                         required
                     />
                 </label>
-                <button type="submit">Sign Up</button>
+                <button className="signup-button" type="submit">Sign Up</button>
             </form>
         <ul className="errorList-signup">
                     {errors.map((error, idx) =><li className="errors-signup" key={idx}>{error}</li>)}

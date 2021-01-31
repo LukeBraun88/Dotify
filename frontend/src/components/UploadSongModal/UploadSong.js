@@ -52,11 +52,13 @@ export function UploadSong() {
     };
 
     return (
-        <form className="pure-form-stacked login" onSubmit={handleSubmit}>
+        <div className="song-add-container">
+
+        <form className="song-add pure-form-stacked" onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div>Add a Song</div>
+            <h2 className="add-song-title">Add a Song</h2>
             <label>
                 Song Name
         <input
@@ -76,9 +78,11 @@ export function UploadSong() {
                 />
             </label>
             <label>
-                <input type="file" onChange={updateFile} />
+                <input className="file" type="file" onChange={updateFile} />
             </label>
-            <button type="submit">Add Song</button>
+            <button className="addSong-button" type="submit">Add Song</button>
         </form>
+        <div className="space" ></div>
+        </div>
     );
 }

@@ -19,9 +19,17 @@
     width:203px;
 }
 
+.buttons {
+    display:flex;
+    justify-content: space-between;
+    width: 203px;
+}
 
-#modal-content{
-    /* border-radius: 10%; */
+.login-button {
+    padding: 10px;
+    margin: 5px 0px;
+    /* margin:10px; */
+    width:97px;
 }
 
 /* .errors-login {

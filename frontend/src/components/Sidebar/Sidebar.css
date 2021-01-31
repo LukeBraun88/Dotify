@@ -1,8 +1,5 @@
 
-.sidebar {
-    position:absolute;
-    top:60px;
-}
+
 
 .link, .upload {
     height: 40px;
@@ -26,10 +23,12 @@
 
 
 .sidebar {
+        position:fixed;
+        top:60px;
     background-color: #000000;
-    height: 90vh;
+    height: 100vh;
     width: 230px;
-    z-index:1;
+    z-index:3;
 }
 
 i {

@@ -1,0 +1,10 @@
+
+
+.background{
+    width:100vw;
+    height:100vh;
+    background-image:url('./spotify.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+}

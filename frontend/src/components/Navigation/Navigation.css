@@ -10,7 +10,7 @@ height: 70px;
  background-color: #000000;
  justify-content: center;
  position:fixed;
-z-index:2;
+z-index:4;
 }
 
 
@@ -48,7 +48,11 @@ z-index:2;
 }
 
 
-
+.login-links{
+    width:95px;
+    display: flex;
+    flex-direction: row;
+}
 .navlink:hover {
     color:rgb(40, 167, 40);
 }
@@ -74,6 +78,7 @@ z-index:2;
     color:white;
     list-style: none;
     width:30px;
+    align-items: center;
 }
 
 
@@ -85,9 +90,11 @@ z-index:2;
     width:20px;
 } */
 
-.page{
+/* .page{
     width:100vw;
     height:100vh;
     background-image:url('./spotify.jpg');
-     background-size: cover
-}
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+} */

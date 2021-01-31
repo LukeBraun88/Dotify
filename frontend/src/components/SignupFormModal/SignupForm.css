@@ -6,7 +6,8 @@
     justify-content: center;
     flex-direction: column;
     width: 300px;
-    height: 450px;
+    height: 500px;
+    /* z-index: 2; */
 }
 
 .signup {
@@ -15,6 +16,7 @@
     align-items: center;
     justify-content: center;
     width: 203px;
+    font-weight: 500;
 }
 
 .file {
@@ -30,8 +32,7 @@
     border: 4px solid rgb(0,224,145);
     box-shadow: 0 0 0 3pt rgb(173, 173, 173);
     top:150px;
-
-
+    /* z-index: 2; */
 }
 
 
@@ -43,4 +44,11 @@
 
 .errorList-signup {
     width: 210px;
+}
+
+.signup-button{
+    padding: 10px;
+    margin: 5px 0px;
+    /* margin:10px; */
+    width:100px;
 }

@@ -10,7 +10,9 @@ import LikedSongs from "./components/LikedSongs"
 import AllSongs from "./components/AllSongs";
 import UploadSongForm from "./components/UploadSongModal";
 import UploadSongModal from "./components/UploadSongModal/UploadSong";
-
+import { Login } from "./components/Login"
+import Sidebar from "./components/Sidebar";
+import MusicBar from "./components/MusicBar";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,24 +25,28 @@ function App() {
   return (
     <>
 
-          {!sessionUser ? <Navigation isLoaded={isLoaded} /> :
-      isLoaded && (
-        <Switch>
-        <Navigation />
-          <Route exact path="/">
-              <HomePage />
-          </Route>
-          <Route path="/songs">
-            <AllSongs />
-          </Route>
-          <Route path="/upload">
-            <UploadSongForm />
-          </Route>
-          <Route to="/liked">
-            <LikedSongs />
-          </Route>
-        </Switch>
-      )
+      {!sessionUser ? <><Navigation isLoaded={isLoaded} /><Login /></> :
+        isLoaded && (
+          <>
+            <Navigation />
+            <Sidebar />
+            <MusicBar />
+            {/* <Route exact path="/">
+            </Route> */}
+            <Switch>
+              <Route exact path="/">
+                <AllSongs />
+              </Route>
+              <Route path="/upload">
+                <UploadSongForm />
+              </Route>
+              <Route exact to="/liked">
+                <LikedSongs />
+              </Route>
+            </Switch>
+            {/* <HomePage /> */}
+          </>
+        )
       }
     </>
   );

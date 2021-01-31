@@ -5,8 +5,9 @@
     overflow-x: hidden;
     overflow-y: scroll;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     background-color: #121212;
+    z-index: -1;
 }
 
 
@@ -14,4 +15,5 @@
 .container {
     display: flex;
     height: 100%;
+    z-index: -1;
 }
