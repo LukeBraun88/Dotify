@@ -1,6 +1,3 @@
-
-
-
 .link, .upload {
     height: 40px;
     font-weight: bold;
@@ -14,21 +11,21 @@
 }
 
 .link:hover {
-    color:white;
+    color: white;
     font-size: 102%;
 }
+
 .upload:hover {
-    color:white;
+    color: white;
 }
 
-
 .sidebar {
-        position:fixed;
-        top:60px;
+    position: fixed;
+    top: 60px;
     background-color: #000000;
     height: 100vh;
     width: 230px;
-    z-index:3;
+    z-index: 3;
 }
 
 i {

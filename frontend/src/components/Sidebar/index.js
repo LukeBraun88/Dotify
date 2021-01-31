@@ -3,10 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 import UploadSongModal from "../UploadSongModal"
 
-
-
-export default function Sidebar(){
-    return(
+export default function Sidebar() {
+    return (
         <div className="sidebar">
             <div className="sidebar-logo">Dotify</div>
             <ul className="sidebar-links">

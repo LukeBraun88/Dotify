@@ -8,8 +8,8 @@ export async function fetch(url, options = {}) {
   options.headers = options.headers || {};
 
   // if the options.method is not 'GET', then set the "Content-Type" header to
-    // "application/json", and set the "XSRF-TOKEN" header to the value of the
-    // "XSRF-TOKEN" cookie
+  // "application/json", and set the "XSRF-TOKEN" header to the value of the
+  // "XSRF-TOKEN" cookie
   if (options.method.toUpperCase() !== "GET") {
     if (options.headers["Content-Type"] === "multipart/form-data") {
       delete options.headers["Content-Type"];
@@ -23,7 +23,7 @@ export async function fetch(url, options = {}) {
   const res = await window.fetch(url, options);
 
   // if the response's body is JSON, then parse the JSON body and set it to a
-    // key of `data` on the response
+  // key of `data` on the response
   const contentType = res.headers.get('content-type');
   if (contentType && contentType.includes('application/json')) {
     const data = await res.json();
@@ -31,11 +31,11 @@ export async function fetch(url, options = {}) {
   }
 
   // if the response status code is 400 or above, then throw an error with the
-    // error being the response
+  // error being the response
   if (res.status >= 400) throw res;
 
   // if the response status code is under 400, then return the response to the
-    // next promise chain
+  // next promise chain
   return res;
 }
 

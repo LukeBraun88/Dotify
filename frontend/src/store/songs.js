@@ -1,5 +1,4 @@
 import { fetch } from './csrf';
-// import {fetch} from "node-fetch"
 const SET_SONGS = 'songs/SET_SONGS';
 const REMOVE_SONG = 'songs/REMOVE_SONG'
 
@@ -30,7 +29,7 @@ export const deleteSongStore = (songId) => async (dispatch)=>{
 
 //thunk which accepts an object of key value pairs and turns them into FormData entries to send with your request.
 export const createSong = (song) => async (dispatch) => {
-    const { name, artist, songFile, userId } = song; //can add images if multiple
+    const { name, artist, songFile, userId } = song; //can add songs entry if multiple
 
     const formData = new FormData();
     formData.append("name", name);
@@ -54,7 +53,6 @@ export const createSong = (song) => async (dispatch) => {
         body: formData,
     });
 
-    // dispatch(setSongs(res.data.song));
 };
 
 
@@ -64,19 +62,15 @@ export const createSong = (song) => async (dispatch) => {
 // 1) gets songs from route
 // 2) normalizes song data
 // 3) updates state
-//         - dispatches action creator
-//         - action runs in reducer which updates state
 
 export const getSongs = () => async dispatch => {
     const res = await fetch('/api/songs');
     const songs = res.data.songs
-    console.log("songs-----", songs)
     let normalizedSongs = {}
     for (let i =0; i<songs.length; i++){
         const song = songs[i]
         normalizedSongs[song.id] = song
     }
-    console.log("normalizedSongs", normalizedSongs)
     dispatch(setSongs(normalizedSongs))
 };
 

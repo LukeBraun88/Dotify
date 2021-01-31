@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import {UploadSong} from './UploadSong';
+import { UploadSong } from './UploadSong';
 import { NavLink } from 'react-router-dom'
 import "./UploadSongForm.css"
 

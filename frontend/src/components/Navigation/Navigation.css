@@ -1,72 +1,66 @@
-
 body {
     font-family: sans-serif;
 }
 
-
-.navbar{
-height: 70px;
- width: 100%;
- background-color: #000000;
- justify-content: center;
- position:fixed;
-z-index:4;
+.navbar {
+    height: 70px;
+    width: 100%;
+    background-color: #000000;
+    justify-content: center;
+    position: fixed;
+    z-index: 4;
 }
 
-
-.navbar-list{
- display:flex;
- height:100%;
- width:100%;
- padding: 0px 0px;
- margin: auto;
+.navbar-list {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 0px 0px;
+    margin: auto;
 }
-
 
 .seperator {
     border-left: 2px solid white;
-    width:50px;
+    width: 50px;
     font-size: 18px;
 }
 
 .navlink {
     color: #d9dadc;
     text-decoration: none;
-    /* font-weight: bold; */
     font-size: 90%;
     font-weight: 700;
     padding: 0px 20px;
-
- }
+}
 
 .home {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
     font-size: 180%;
-    pointer-events:none;
+    pointer-events: none;
 }
 
-
-.login-links{
-    width:95px;
+.login-links {
+    width: 95px;
     display: flex;
     flex-direction: row;
 }
+
 .navlink:hover {
-    color:rgb(40, 167, 40);
+    color: rgb(40, 167, 40);
 }
 
 .right-links {
-    display:flex;
-    width:30%;
+    display: flex;
+    width: 30%;
     height: 100%;
     padding: 0px 20px;
     align-items: center;
 }
 
 .left-links {
-    display:flex;
+    display: flex;
     width: 70%;
     height: 100%;
     align-items: center;
@@ -75,26 +69,12 @@ z-index:4;
 
 .dropdown-container {
     display: flex;
-    color:white;
+    color: white;
     list-style: none;
-    width:30px;
+    width: 30px;
     align-items: center;
 }
 
-
 .profile {
-    right:70px;
+    right: 70px;
 }
-
-/* .profile-pic {
-    width:20px;
-} */
-
-/* .page{
-    width:100vw;
-    height:100vh;
-    background-image:url('./spotify.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 0;
-} */

@@ -29,26 +29,6 @@ const setTokenCookie = (res, user) => {
   return token;
 };
 
-'use strict';
-
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users', [
-      {
-        username: "demo",
-        email: "demo@user.com",
-        hashedPassword: "demo",
-        profileImageUrl: "https://lukes-bucket-88.s3.amazonaws.com/profile-default.jpg"
-      }
-
-    ], {});
-  },
-
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Users', null, {});
-  }
-};
-
 //will restore the session user based on the contents of the JWT cookie
 const restoreUser = (req, res, next) => {
   // token parsed from cookies

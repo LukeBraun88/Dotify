@@ -3,7 +3,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { setTokenCookie} = require('../../utils/auth');
 const { User } = require('../../db/models');
 
 const { check } = require('express-validator');
@@ -23,9 +23,6 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isLength({ min: 4 })
         .withMessage('Please provide a username with at least 4 characters.'),
-    // check('image')
-    //     .exists({ checkFalsy: true })
-    //     .withMessage('Must add a profile picture'),
     check('password')
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
@@ -33,7 +30,6 @@ const validateSignup = [
     handleValidationErrors,
 ];
 
-//this isn't working ---------------------
 // Sign up
 router.post(
     '/',
@@ -52,4 +48,3 @@ router.post(
 
 module.exports = router;
 
-//qmaMIVCn-wRfIu08VcZ_DatOirK5rA47fMW8

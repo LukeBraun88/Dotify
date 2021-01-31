@@ -13,26 +13,25 @@ const { environment } = require('./config');
 const isProduction = environment === 'production';
 //Initialize the Express application:
 const app = express();
-//Connect the morgan middleware for logging information about requests and responses:
+//morgan middleware for logging information about requests and responses:
 app.use(morgan('dev'));
-//Add the cookie-parser middleware for parsing cookies
+//Adding the cookie-parser middleware for parsing cookies
 app.use(cookieParser());
 //changed express.json middleware to bodyParser for aws
 app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
 app.use(bodyParser.json({ limit: '50mb' }));
-// Connect all the routes
 
 // Security Middleware
 if (!isProduction) {
     // enable cors only in development
     app.use(cors());
 }
-// helmet helps set a variety of headers to better secure your app
+// helmet helps set a variety of headers to better secure the app
 app.use(helmet({
     contentSecurityPolicy: false
 }));
 
-// Set the _csrf token and create req.csrfToken method
+// Sets the _csrf token and creates req.csrfToken method
 app.use(
     csurf({
         cookie: {
@@ -45,11 +44,6 @@ app.use(
 
 //has to be used after the other middlewares
 app.use(routes);
-
-
-
-
-
 
 //------------------ERROR HANDLERS------------------------------------------
 

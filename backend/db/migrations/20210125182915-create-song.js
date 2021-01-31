@@ -26,14 +26,14 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        // allowNull: false,
+        allowNull: false,
       },
       createdAt: {
-        // allowNull: false,
+        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        // allowNull: false,
+        allowNull: false,
         type: Sequelize.DATE
       }
     });

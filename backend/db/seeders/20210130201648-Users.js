@@ -7,7 +7,7 @@ module.exports = {
         username: "demo88",
         email: "demo@user.com",
         hashedPassword: "demo",
-        profileImageUrl: "https://lukes-bucket-88.s3.amazonaws.com/profile-default.jpg"
+        profileImageUrl: ""
       }
 
     ], {});

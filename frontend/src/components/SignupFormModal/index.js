@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SignupForm from './SignupForm';
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import "./SignupForm.css"
 
 function SignupFormModal() {

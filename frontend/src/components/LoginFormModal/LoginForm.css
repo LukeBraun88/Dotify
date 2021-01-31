@@ -1,13 +1,10 @@
 
-
 .login-container {
     display:flex;
     align-items: center;
-    /* align-content: center; */
     flex-direction: column;
     justify-content: center;
     width: 300px;
-    /* height: 220px; */
     height: 300px;
 }
 
@@ -28,17 +25,6 @@
 .login-button {
     padding: 10px;
     margin: 5px 0px;
-    /* margin:10px; */
     width:97px;
 }
 
-/* .errors-login {
-    color: rgb(0, 0, 0);
-}
-
-.errorList-login {
-    width: 210px;
-} */
-
-
-/* pure-form-stacked */

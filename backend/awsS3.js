@@ -1,32 +1,20 @@
 const AWS = require("aws-sdk");
-// name of your bucket here
+
 const NAME_OF_BUCKET = "lukes-bucket-88";
 
 const multer = require("multer");
-
-//  make sure to set environment variables in production for:
-//  AWS_ACCESS_KEY_ID
-//  AWS_SECRET_ACCESS_KEY
-//  and aws will automatically use those environment variables
 
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
 async function removeFile(key){
   var bucketInstance = new AWS.S3({ apiVersion: "2006-03-01" });
   var params = { Bucket: 'lukes-bucket-88', Key: key };
-  console.log("params",params)
   try {
     await bucketInstance.deleteObject(params)
-    console.log("----------------deleted--------------")
   } catch (error) {
-    console.log("ERROR:",error)
+    console.error(error)
   }
 }
-
-
-//---------------------- REMOVE FILE -------------------------------
-
-
 
 
 // --------------------------- Public UPLOAD ------------------------
@@ -34,7 +22,7 @@ async function removeFile(key){
 const singlePublicFileUpload = async (file) => {
   const { originalname, mimetype, buffer } = await file;
   const path = require("path");
-  // name of the file in your S3 bucket will be the date in ms plus the extension name
+  // name of the file in the S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
     Bucket: NAME_OF_BUCKET,
@@ -45,7 +33,7 @@ const singlePublicFileUpload = async (file) => {
   const result = await s3.upload(uploadParams).promise();
   const location = result.Location
   const key = result.key
-  // save the name of the file in your bucket as the key in your database to retrieve for later
+  // saves the name of the file in the bucket as the key in the database to retrieve for later
   return {location, key};
 };
 
@@ -57,12 +45,11 @@ const multiplePublicFileUpload = async (files) => {
   );
 };
 
-// --------------------------- Prviate UPLOAD ------------------------
+// --------------------------- Private UPLOAD ------------------------
 
 const singlePrivateFileUpload = async (file) => {
   const { originalname, mimetype, buffer } = await file;
   const path = require("path");
-  // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
     Bucket: NAME_OF_BUCKET,
@@ -102,7 +89,7 @@ const storage = multer.memoryStorage({
   },
 });
 
-const singleMulterUpload = (nameOfKey) => // middleware converts data into readable feilds
+const singleMulterUpload = (nameOfKey) => // middleware converts data into readable fields
   multer({ storage: storage }).single(nameOfKey);
 const multipleMulterUpload = (nameOfKey) =>
   multer({ storage: storage }).array(nameOfKey);

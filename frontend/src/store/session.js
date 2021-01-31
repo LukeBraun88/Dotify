@@ -1,4 +1,4 @@
- //contains all the actions specific to the session user's information and the session user's Redux reducer
+//contains all the actions specific to the session user's information and the session user's Redux reducer
 
 import { fetch } from './csrf';
 
@@ -19,13 +19,6 @@ export const createUser = (user) => async (dispatch) => {
     formData.append("username", username);
     formData.append("email", email);
     formData.append("password", password);
-
-    // for multiple files
-    // if (images && images.length !== 0) {
-    //     for (var i = 0; i < images.length; i++) {
-    //         formData.append("images", images[i]);
-    //     }
-    // }
 
     // for single file
     if (image) formData.append("image", image);
@@ -100,10 +93,6 @@ const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
             return { ...state, user: action.payload };
-        // case SET_USER:
-        //     newState = Object.assign({}, state);
-        //     newState.user = action.payload;
-            return newState;
         case REMOVE_USER:
             newState = Object.assign({}, state);
             newState.user = null;
@@ -112,8 +101,6 @@ const sessionReducer = (state = initialState, action) => {
             return state;
     }
 };
-
-
 
 
 export default sessionReducer;

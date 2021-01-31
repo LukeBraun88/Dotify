@@ -1,20 +1,14 @@
 import "./HomePage.css"
-import React, { useState } from "react";
-import { NavLink } from 'react-router-dom'
-import PlayingNow from "../PlayingNow";
-import MusicBar from "../MusicBar";
-import Sidebar from "../Sidebar"
-import Navigation from "../Navigation"
-import AllSongs from "../AllSongs"
+import React from "react";
 
 
 
-function HomePage() {
+export default function HomePage() {
     return (
         <>
-            
+
         </>
     )
 }
 
-export default HomePage;
+

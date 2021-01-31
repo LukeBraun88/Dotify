@@ -5,16 +5,10 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const router = express.Router();
 
-const  {Song, User} = require("../../db/models")
+const  {Song} = require("../../db/models")
 const { handleValidationErrors } = require('../../utils/validation');
 const { check } = require('express-validator');
 const { singlePublicFileUpload, singleMulterUpload, removeFile } = require("../../awsS3")
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const song = require('../../db/models/song');
-
-//Restore session user
-
-//this is what interacts with my db to get the songs
 
 const validateSongCreate = [
     check('name')
@@ -25,10 +19,6 @@ const validateSongCreate = [
         .withMessage('Please provide the artist'),
         handleValidationErrors,
     ];
-    // check('songFile')
-    //     .exists({ checkFalsy: true })
-    //     .withMessage('Please provide the song file'),
-
 
 router.get('/',asyncHandler(async (req, res) => {
         const songs = await Song.findAll({
@@ -51,7 +41,6 @@ router.delete('/:id(\\d+)',asyncHandler(async (req, res) => {
         })
     }),
 );
-
 
 router.post(
     '/',
