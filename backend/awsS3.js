@@ -6,7 +6,7 @@ const multer = require("multer");
 
 // const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
-let s3 = new aws.S3({
+let s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   apiVersion: "2006-03-01"
