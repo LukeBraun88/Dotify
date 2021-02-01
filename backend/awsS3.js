@@ -4,13 +4,18 @@ const NAME_OF_BUCKET = "lukes-bucket-88";
 
 const multer = require("multer");
 
-const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+// const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+
+let s3 = new aws.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  apiVersion: "2006-03-01"
+});
 
 async function removeFile(key){
-  var bucketInstance = new AWS.S3({ apiVersion: "2006-03-01" });
   var params = { Bucket: 'lukes-bucket-88', Key: key };
   try {
-    await bucketInstance.deleteObject(params)
+    await s3.deleteObject(params)
   } catch (error) {
     console.error(error)
   }

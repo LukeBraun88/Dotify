@@ -37,7 +37,7 @@ router.post(
     validateSignup,
     asyncHandler(async (req, res) => {
         const { email, password, username } = req.body;
-        const {location,key }= await singlePublicFileUpload(req.file)
+        const {location }= await singlePublicFileUpload(req.file)
         const user = await User.signup({ email, username, password, profileImageUrl: location});
         await setTokenCookie(res, user);
         return res.json({
@@ -47,4 +47,3 @@ router.post(
 );
 
 module.exports = router;
-
