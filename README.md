@@ -2,13 +2,11 @@
 
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 <!-- PROJECT PIC -->
 
 <p align="center">
-  <img src="https://i.imgur.com/sdz5Gpx.png" alt="website image" width="120" height="120" title="source: imgur.com" />
   <h2 align="center">Dotify</h2>
 
   <p align="center">
@@ -24,11 +22,7 @@
     <a href="https://github.com/LukeBraun88/Dotify/issues">Report Bug</a>
     ·
     <a href="https://github.com/LukeBraun88/Dotify/issues">Request Feature</a>
-
   </p>
-  <div align="center">
-  <img  src="https://imgur.com/sdz5Gpx" alt="HomePage" width="150" height="150">
-  </div>
 
 </p>
 
@@ -43,7 +37,7 @@
       <ul>
         <li><a href="#feature-highlights">Feature Highlights</a></li>
         <li><a href="#project-challenges">Project Challenges</a></li>
-        <li><a href="#code-snippets">Code Snippets</a></li>
+        <li><a href="#code-snippet">Code Snippet</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -53,9 +47,6 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -80,7 +71,7 @@ Dotify is a react/redux based clone of Spotify that allows users to upload their
 
 You wouldn't know how hard it would be to get songs uploaded to AWS without trying it for yourself, but let's just say it was definitely a learning experience. Although, I think for my first time I did a good job!
 
-## Code Snippets
+## Code Snippet
 
 Redux thunk for finding liked songs with the corresponding api route
 ```js
@@ -178,8 +169,6 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/luke-braun-840328a8/
 [issues-shield]: https://img.shields.io/github/issues/LukeBraun88/Dotify
 [issues-url]: https://github.com/LukeBraun88/Dotify/issues
 [stars-shield]: https://img.shields.io/github/stars/LukeBraun88/Dotify
