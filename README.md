@@ -1,19 +1,14 @@
 
 
-[![Contributors][contributors-shield]][https://github.com/LukeBraun88/Dotify/graphs/contributors]
-[![Forks][forks-shield]][https://github.com/LukeBraun88/Dotify/network/members]
-[![Stargazers][stars-shield]][https://github.com/LukeBraun88/Dotify/stargazers]
-[![Issues][issues-shield]][https://github.com/LukeBraun88/Dotify/issues]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/luke-braun-840328a8/]
-
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 <!-- PROJECT PIC -->
 
 <p align="center">
-
-
-
+  <img src="https://i.imgur.com/sdz5Gpx.png" alt="website image" width="120" height="120" title="source: imgur.com" />
   <h2 align="center">Dotify</h2>
 
   <p align="center">
@@ -93,11 +88,13 @@ Redux thunk for finding liked songs with the corresponding api route
 export const getLikedSongs = (userId) => async dispatch => {
     const res = await fetch(`/api/likes/songs/${userId}`);
     const songs = res.data.songs
+    console.log("songs-----likes", songs)
     let normalizedSongs = {}
     for (let i = 0; i < songs.length; i++) {
         const song = songs[i]
         normalizedSongs[song.id] = song
     }
+    console.log("normalizedLikedSongs",normalizedSongs)
     dispatch(setLikedSongs(normalizedSongs))
 };
 
@@ -110,11 +107,13 @@ router.get(`/songs/:id(\\d+)`, asyncHandler(async (req, res) => {
         order: [["createdAt", "DESC"]],
     })
     const songsId = await userLikes.map(like=>like.songId)
+    // console.log("songs",songs)
     const songs = await Song.findAll({
         where: {
             id: songsId
         }
     })
+    // console.log("likedSongs",likedSongs)
     await
         res.json({
             songs,
@@ -179,13 +178,9 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 
-
-<!-- CONTACT -->
-## Contact
-
-Luke Braun - [Luke Braun]:(https://www.linkedin.com/in/luke-braun-840328a8/) - LinkedIn
-
-Project Link: [Dotify]: (https://github.com/LukeBraun88/Dotify)
-
-
-
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/luke-braun-840328a8/
+[issues-shield]: https://img.shields.io/github/issues/LukeBraun88/Dotify
+[issues-url]: https://github.com/LukeBraun88/Dotify/issues
+[stars-shield]: https://img.shields.io/github/stars/LukeBraun88/Dotify
+[stars-url]:https://github.com/LukeBraun88/Dotify/stargazers
