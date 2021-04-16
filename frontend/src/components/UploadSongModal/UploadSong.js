@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as songActions from "../../store/songs"
+import { useEffect } from 'react'
 
 export function UploadSong({ showModal, setShowModal }) {
     const dispatch = useDispatch();
@@ -38,6 +39,12 @@ export function UploadSong({ showModal, setShowModal }) {
         const file = e.target.files[0];
         if (file) setSongFile(file);
     };
+
+
+    useEffect(() => {
+        var element3 = document.getElementById("upload");
+        element3.classList.add("clicked");
+    }, [])
 
     return (
         <div className="song-add-container">

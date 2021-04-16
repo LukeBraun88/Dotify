@@ -8,11 +8,17 @@ import "./UploadSongForm.css"
 export default function UploadSongModal() {
     const [showModal, setShowModal] = useState(false);
 
+    const closeModal = () =>{
+        setShowModal(false)
+        var element3 = document.getElementById("upload");
+        element3.classList.remove("clicked");
+    }
+
     return (
         <>
-            <span className="link" onClick={() => setShowModal(true)}><i className="fas fa-upload"></i>Upload Song</span>
+            <span id='upload' className="link" onClick={() => setShowModal(true)}><i className="fas fa-upload"></i>Upload Song</span>
             {showModal && (
-                <Modal className="add-song-modal" onClose={() => setShowModal(false)}>
+                <Modal className="add-song-modal" onClose={closeModal}>
                     <UploadSong showModal={showModal} setShowModal={setShowModal}/>
                 </Modal>
             )}

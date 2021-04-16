@@ -33,6 +33,15 @@ function LikedSongs() {
         dispatch(likedSongsActions.getLikedSongs(userId))
     }
 
+    useEffect(()=>{
+        var element1 = document.getElementById("songs");
+        element1.classList.remove("clicked");
+        var element3 = document.getElementById("upload");
+        element3.classList.remove("clicked");
+        var element2 = document.getElementById("liked");
+        element2.classList.add("clicked");
+    },[])
+
 
     return (
         <>

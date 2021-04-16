@@ -15,6 +15,11 @@
     font-size: 102%;
 }
 
+.clicked {
+    color: white;
+    font-size: 102%;
+}
+
 .upload:hover {
     color: white;
 }

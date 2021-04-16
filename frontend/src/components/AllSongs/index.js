@@ -38,12 +38,19 @@ function AllSongs() {
         dispatch(songActions.deleteSongStore(songId))
     }
 
+    useEffect(() => {
+        var element1 = document.getElementById("liked");
+        element1.classList.remove("clicked");
+        var element2 = document.getElementById("songs");
+        element2.classList.add("clicked");
+    }, [])
+
 
     return (
         <>
             <div className="container">
                 <div className="music">
-
+                    {/* <p className='title'>All Songs</p> */}
                     <div className="all-songs">
                         {songs.map(song =>
                         (<li className="song-lists" key={song.id}>
