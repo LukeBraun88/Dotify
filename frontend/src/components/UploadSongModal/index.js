@@ -10,7 +10,7 @@ export default function UploadSongModal() {
 
     return (
         <>
-            <NavLink to="" className="link" onClick={() => setShowModal(true)}><i className="fas fa-upload"></i>Upload Song</NavLink>
+            <span className="link" onClick={() => setShowModal(true)}><i className="fas fa-upload"></i>Upload Song</span>
             {showModal && (
                 <Modal className="add-song-modal" onClose={() => setShowModal(false)}>
                     <UploadSong />

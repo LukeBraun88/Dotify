@@ -25,12 +25,14 @@ body {
     font-size: 18px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 .navlink {
     color: #d9dadc;
     text-decoration: none;
     font-size: 90%;
-    font-weight: 700;
+    font-weight: 800;
     padding: 0px 20px;
+    font-family: 'Mulish', sans-serif;
 }
 
 .home {
@@ -38,7 +40,6 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 180%;
-    pointer-events: none;
 }
 
 .login-links {
@@ -48,7 +49,7 @@ body {
 }
 
 .navlink:hover {
-    color: rgb(40, 167, 40);
+    color: rgb(177, 177, 177);
 }
 
 .right-links {

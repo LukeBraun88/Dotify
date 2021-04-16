@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
   Song.associate = function(models) {
-    Song.hasMany(models.Like,{foreignKey:"songId", onDelete:"cascade",hooks:true})
+    Song.hasMany(models.Like, { foreignKey: "songId", onDelete: "cascade", hooks: true })
     Song.belongsTo(models.User, { foreignKey: "userId" })
   };
 

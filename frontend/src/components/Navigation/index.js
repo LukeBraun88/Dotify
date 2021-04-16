@@ -15,7 +15,7 @@ function Navigation({ isLoaded }) {
       <div className="navbar">
         <ul className="navbar-list">
           <div className="left-links">
-            <li className=""><NavLink className="home navlink" exact to="/" >Dotify</NavLink></li>
+            <NavLink className="home navlink" exact to="/" >Dotify</NavLink>
           </div>
           {sessionUser ?
             (<div className="dropdown-container">
