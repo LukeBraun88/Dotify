@@ -57,7 +57,7 @@ const likesReducer = (state = initialState, action) => {
             return newState;
         case REMOVE_LIKE:
             newState = { ...state }
-            delete newState[action.likeId]
+            delete newState[action.payload.data.likeId]
             return newState;
         default:
             return state;

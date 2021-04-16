@@ -21,16 +21,18 @@ function AllSongs() {
 
     useEffect(() => {
         dispatch(songActions.getSongs())
-        dispatch(likesActions.getLikes())
-        dispatch(likedSongsActions.getLikedSongs(userId))
-    }, [dispatch])
+        // dispatch(likesActions.getLikes())
+        // dispatch(likedSongsActions.getLikedSongs(userId))
+    }, [])
 
 
     function likeSong(songId) {
         dispatch(likeActions.createLike({ userId, songId }))
         dispatch(likesActions.getLikes())
+        dispatch(likedSongsActions.getLikedSongs(userId))
     }
     function unLikeSong(songId) {
+        dispatch(likedSongsActions.removeLikedSong(songId))
         dispatch(likeActions.deleteLikeStore({ userId, songId }))
         dispatch(likesActions.getLikes())
     }

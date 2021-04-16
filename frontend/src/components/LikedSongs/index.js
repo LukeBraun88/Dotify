@@ -18,15 +18,15 @@ function LikedSongs() {
     const userId = sessionUser.id
 
     useEffect(() => {
-        dispatch(songActions.getSongs())
+        // dispatch(songActions.getSongs())
         dispatch(likesActions.getLikes())
         dispatch(likedSongsActions.getLikedSongs(userId))
-    }, [dispatch])
+    }, [])
 
     function unLikeSong(songId) {
         dispatch(likeActions.deleteLikeStore({ userId, songId }))
-        dispatch(likesActions.getLikes())
-        dispatch(likedSongsActions.getLikedSongs(userId))
+        // dispatch(likesActions.getLikes())
+        dispatch(likedSongsActions.removeLikedSong(songId))
     }
     function deleteSong(songId) {
         dispatch(songActions.deleteSongStore(songId))

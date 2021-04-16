@@ -47,7 +47,7 @@ router.delete('/:id(\\d+)/:id2(\\d+)', asyncHandler(async (req, res) => {
     })
     await like.destroy()
     res.json({
-        like
+        likeId: like.id
     })
 }),
 );
