@@ -45,6 +45,8 @@ function AllSongs() {
         element1.classList.remove("clicked");
         var element2 = document.getElementById("songs");
         element2.classList.add("clicked");
+        var element3 = document.getElementById("upload");
+        element3.classList.remove("clicked");
     }, [])
 
 

@@ -15,6 +15,11 @@ export function UploadSong({ showModal, setShowModal }) {
     const [loading, setLoading] = useState(false)
     const history = useHistory()
 
+    const unClick = () => {
+        var element3 = document.getElementById("upload");
+        element3.classList.remove("clicked");
+    }
+
     const handleSubmit = async(e) => {
         e.preventDefault();
         let newErrors = [];
@@ -27,6 +32,7 @@ export function UploadSong({ showModal, setShowModal }) {
             await setSongFile(null);
             await history.push("/")
             await setShowModal(false)
+            await unClick()
 
         } catch (errors) {
             setErrors(errors);

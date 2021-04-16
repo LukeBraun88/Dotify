@@ -13,12 +13,16 @@ module.exports = (sequelize, DataTypes) => {
     },
 
   },
+    // {
+    //   uniqueKeys: {
+    //     actions_unique: {
+    //       fields: ['userId', 'songId']
+    //     }
+    //   }
+    // }
     {
-      uniqueKeys: {
-        actions_unique: {
-          fields: ['userId', 'songId']
-        }
-      }
+      unique: true,
+      fields: ['userId', 'songId']
     }
   );
 
