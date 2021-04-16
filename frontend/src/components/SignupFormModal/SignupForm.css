@@ -22,7 +22,7 @@
 
 #modal-content {
     border-radius: 10%;
-    border: 4px solid rgb(0, 224, 145);
+    border: 4px solid #00e091;
     box-shadow: 0 0 0 3pt rgb(173, 173, 173);
     top: 150px;
 }

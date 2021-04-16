@@ -11,6 +11,7 @@ export function UploadSong({ showModal, setShowModal }) {
     const [artist, setArtist] = useState("");
     const [songFile, setSongFile] = useState(null);
     const [errors, setErrors] = useState([]);
+    const [loading, setLoading] = useState(false)
     const history = useHistory()
 
     const handleSubmit = async(e) => {
@@ -18,6 +19,7 @@ export function UploadSong({ showModal, setShowModal }) {
         let newErrors = [];
         const userId = sessionUser.id
         try {
+            await setLoading(true)
             await dispatch(songActions.createSong({ name, artist, songFile, userId }))
             await setName("");
             await setArtist("");
@@ -39,6 +41,7 @@ export function UploadSong({ showModal, setShowModal }) {
 
     return (
         <div className="song-add-container">
+
 
             <form className="song-add pure-form-stacked" onSubmit={handleSubmit}>
                 <ul>
@@ -66,7 +69,11 @@ export function UploadSong({ showModal, setShowModal }) {
                 <label>
                     <input className="file" type="file" onChange={updateFile} />
                 </label>
-                <button className="addSong-button" type="submit">Add Song</button>
+                {!loading ? <button className="addSong-button" type="submit">Add Song</button>:
+                <div className="loader"></div>
+                }
+
+
             </form>
             <div className="space" ></div>
         </div>
