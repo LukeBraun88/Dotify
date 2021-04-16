@@ -1,6 +1,7 @@
 import { fetch } from './csrf';
 const SET_SONGS = 'songs/SET_SONGS';
 const REMOVE_SONG = 'songs/REMOVE_SONG'
+const ADD_SONG = 'songs/ADD_SONG'
 
 //action creater that sets the song in the song slice of state
 export const setSongs = (songs) => {
@@ -14,6 +15,13 @@ export const removeSong = (songId) => {
     return {
         type: REMOVE_SONG,
         payload: songId,
+    };
+}
+
+export const addSong = (song) => {
+    return {
+        type: ADD_SONG,
+        payload: song,
     };
 }
 
@@ -53,6 +61,8 @@ export const createSong = (song) => async (dispatch) => {
         body: formData,
     });
 
+    const newSong = res.data.song
+    dispatch(addSong(newSong))
 };
 
 
@@ -82,6 +92,10 @@ export const songsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_SONGS:
             newState = Object.assign({}, state, action.payload);
+            return newState;
+        case ADD_SONG:
+            newState = {...state}
+            newState[action.payload.id] = action.payload
             return newState;
         case REMOVE_SONG:
             newState = { ...state }

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as songActions from "../../store/songs"
 
-export function UploadSong() {
+export function UploadSong({ showModal, setShowModal }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [name, setName] = useState("");
@@ -13,23 +13,22 @@ export function UploadSong() {
     const [errors, setErrors] = useState([]);
     const history = useHistory()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         let newErrors = [];
         const userId = sessionUser.id
-        return dispatch(songActions.createSong({ name, artist, songFile, userId }))
-            .then(() => {
-                setName("");
-                setArtist("");
-                setSongFile(null);
-                dispatch(songActions.getSongs())
-            })
-            .catch((res) => {
-                if (res.data && res.data.errors) {
-                    newErrors = res.data.errors;
-                    setErrors(newErrors);
-                }
-            });
+        try {
+            await dispatch(songActions.createSong({ name, artist, songFile, userId }))
+            await setName("");
+            await setArtist("");
+            await setSongFile(null);
+            await history.push("/")
+            await setShowModal(false)
+
+        } catch (errors) {
+            setErrors(errors);
+            console.log("errors", errors)
+        }
 
     };
 

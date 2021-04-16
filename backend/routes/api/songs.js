@@ -24,8 +24,7 @@ router.get('/',asyncHandler(async (req, res) => {
         const songs = await Song.findAll({
             order: [["createdAt", "DESC"]],
         })
-        await
-        res.json({
+        return res.json({
             songs,
         });
     }),
@@ -50,7 +49,6 @@ router.post(
         const { name, artist, userId} = req.body;
         const {location, key} = await singlePublicFileUpload(req.file)
         const song = await Song.upload({ name, artist, filePath: location, key, userId});
-
         return res.json({
             song
         });

@@ -13,7 +13,7 @@ export default function UploadSongModal() {
             <span className="link" onClick={() => setShowModal(true)}><i className="fas fa-upload"></i>Upload Song</span>
             {showModal && (
                 <Modal className="add-song-modal" onClose={() => setShowModal(false)}>
-                    <UploadSong />
+                    <UploadSong showModal={showModal} setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
