@@ -5,13 +5,15 @@
     min-width: 200px;
 }
 
-.music-bar {
+/* .music-bar {
     position: fixed;
     height: 10vh;
     width: 100%;
     bottom: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     background: #2b2a2a;
     color: white;
     font-weight: 500;
@@ -19,4 +21,15 @@
     z-index: 2;
     padding: 0 16px;
     line-height: 20px;
+} */
+
+.audio-player {
+    width: 800px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
