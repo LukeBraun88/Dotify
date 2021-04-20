@@ -66,10 +66,10 @@ function AllSongs() {
                             </audio>
                             <div className="options">
                                 <button className="song-button" value={song.id} onClick={() => likeSong(song.id)}>
-                                    <i className="fas fa-heart Like song-icon" value={song.id}></i>
+                                    <i className="fas fa-heart unLike song-icon" value={song.id}></i>
                                 </button>
                                 <button className="song-button" value={song.id} onClick={() => unLikeSong(song.id)}>
-                                    <i className="fas fa-heart unLike song-icon" value={song.id}></i>
+                                    <i className="fas fa-heart Like song-icon" value={song.id}></i>
                                 </button>
                                 <button className="song-button" value={song.id} onClick={() => deleteSong(song.id)}>
                                     <i className="fas fa-times removeSong song-icon" value={song.id} ></i>

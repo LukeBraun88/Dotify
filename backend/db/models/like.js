@@ -21,8 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     //   }
     // }
     {
-      unique: true,
-      fields: ['userId', 'songId']
+      indexes: [{
+        unique: true,
+        fields: ['userId', 'songId']
+      }]
     }
   );
 

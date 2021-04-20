@@ -3,9 +3,9 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [{
-      username: 'trial88',
-      email: 'trial@att.net',
-      hashedPassword: 'trial88',
+      username: 'DemoUser',
+      email: 'demo@user.com',
+      hashedPassword: 'DemoUser',
       profileImageUrl: 'https://lukes-bucket-88.s3.amazonaws.com/1611967431296.jpg'
     }], {});
   },
