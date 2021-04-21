@@ -35,13 +35,7 @@
     display: flex;
 }
 
-.song-title {
-    margin: 0px;
-}
 
-.song-artist {
-    margin: 2px
-}
 
 .song-icon {
     width: 0px;

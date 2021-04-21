@@ -60,13 +60,12 @@ function AllSongs() {
                         {songs.map(song =>
                         (<li className="song-lists" key={song.id}>
                             <div className="song-container">
-                            <h2 className="song-title">{song.name}</h2>
-                            <p className="song-artist">{song.artist}</p>
+                                <Song songId={song.id} name={song.name} artist={song.artist} filePath={song.filePath}/>
+
                             </div>
                             {/* <audio controls className="music-controls">
                                 <source src={song.filePath} type="audio/mp3" />
                             </audio> */}
-                                <Song />
                             <div className="options">
                                 <button className="song-button" value={song.id} onClick={() => likeSong(song.id)}>
                                     <i className="fas fa-heart unLike song-icon" value={song.id}></i>
