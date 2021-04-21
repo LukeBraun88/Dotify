@@ -57,6 +57,19 @@ function AllSongs() {
                 <div className="music">
                     {/* <p className='title'>All Songs</p> */}
                     <div className="all-songs">
+                        <div className="headers">
+                            <p className="play_header">play</p>
+                            <div className="seperator_header1"></div>
+                            <p className="like_header">like</p>
+                            <div className="seperator_header2"></div>
+                            <p className="title_header">title</p>
+                            <div className="seperator_header3"></div>
+                            <p className="artist_header">artist</p>
+                            <div className="seperator_header4"></div>
+                            <p className="unlike_header">unlike</p>
+                            <div className="seperator_header5"></div>
+                            <p className="delete_header">delete</p>
+                        </div>
                         {songs.map(song =>
                         (<li className="song-lists" key={song.id}>
                             <div className="song-container">

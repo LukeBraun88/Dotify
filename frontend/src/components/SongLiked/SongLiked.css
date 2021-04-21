@@ -2,6 +2,7 @@
     width: 78%;
     height: 60px;
     border-radius: 50px;
+    ;
     background-color: grey;
     position: absolute;
     display: flex;
@@ -17,7 +18,7 @@
     cursor: pointer;
     transition: width 0.3s;
     position: relative;
-    left: 10px;
+    left: 8px;
 }
 
 .play:hover {
@@ -39,7 +40,7 @@
 .song-title {
     margin: 0px;
     position: absolute;
-    left: 160px;
+    left: 130px;
 }
 
 .song-artist {
@@ -53,7 +54,8 @@
     cursor: pointer;
     transition: width 0.3s;
     position: absolute;
-    right: 25px;
+    /* left: 900px; */
+    right: 20px;
 }
 
 .delete:hover {
@@ -65,7 +67,8 @@
     cursor: pointer;
     transition: width 0.3s;
     position: absolute;
-    right: 110px;
+    /* left: 900px; */
+    right: 70px;
 }
 
 .unLike:hover {
@@ -78,7 +81,7 @@
     transition: width 0.3s;
     position: absolute;
     /* left: 900px; */
-    left: 80px;
+    left: 70px;
 }
 
 .like:hover {

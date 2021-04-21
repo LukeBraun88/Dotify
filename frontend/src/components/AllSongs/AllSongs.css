@@ -11,10 +11,6 @@
     height: 100%;
 }
 
-.unLike {
-    color: red;
-}
-
 .song-lists {
     padding-bottom: 30px;
     width: 300px;
@@ -23,19 +19,9 @@
     z-index: 7;
 }
 
-.title {
-    font-size: 300%;
-    color: white;
-    position: absolute;
-    top: 30px;
-    left: 250px;
-}
-
 .options {
     display: flex;
 }
-
-
 
 .song-icon {
     width: 0px;
@@ -64,4 +50,90 @@
     display: flex;
     height: 100%;
     z-index: 5;
+}
+
+.headers {
+    width: 78%;
+    height: 60px;
+    border-radius: 50px;
+    background-color: rgb(78, 78, 78);
+    position: absolute;
+    top: -50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 23px;
+    color: rgb(212, 212, 212);
+    z-index: 20;
+}
+
+.play_header {
+    position: relative;
+    left: 15px;
+}
+
+.like_header {
+    position: absolute;
+    left: 85px;
+}
+
+.title_header {
+    position: absolute;
+    left: 160px;
+}
+
+.artist_header {
+    margin: 2px;
+    position: absolute;
+    left: 400px;
+}
+
+.unlike_header {
+    position: absolute;
+    right: 100px;
+}
+
+.delete_header {
+    position: absolute;
+    right: 15px;
+}
+
+.seperator_header1 {
+    width: 1.5px;
+    height: 45px;
+    background-color: white;
+    position: absolute;
+    left: 71px;
+}
+.seperator_header2 {
+    width: 1.5px;
+    height: 45px;
+    background-color: white;
+    position: absolute;
+    left: 140px;
+}
+
+.seperator_header3 {
+    width: 1.5px;
+    height: 45px;
+    background-color: white;
+    position: absolute;
+    left: 385px;
+}
+
+.seperator_header4 {
+    width: 1.5px;
+    height: 45px;
+    background-color: white;
+    position: absolute;
+    right: 172px;
+}
+
+.seperator_header5 {
+    width: 1.5px;
+    height: 45px;
+    background-color: white;
+    position: absolute;
+    right: 86px;
 }

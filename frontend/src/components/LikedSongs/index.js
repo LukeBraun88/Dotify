@@ -7,7 +7,7 @@ import * as likesActions from "../../store/likes"
 import * as likedSongsActions from "../../store/likedSongs"
 import "../AllSongs/AllSongs.css"
 import "./LikedSongs.css"
-import Song from "../Song"
+import SongLiked from "../SongLiked"
 
 
 
@@ -53,7 +53,7 @@ function LikedSongs() {
                         {likedSongs.map(song =>
                         (<li className="song-lists" key={song.id}>
                             <div className="song-container">
-                                <Song songId={song.id} name={song.name} artist={song.artist} filePath={song.filePath} />
+                                <SongLiked songId={song.id} name={song.name} artist={song.artist} filePath={song.filePath} />
                             </div>
 
                         </li>))
