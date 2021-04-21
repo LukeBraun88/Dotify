@@ -51,14 +51,12 @@ function LikedSongs() {
                     <div className="all-songs">
                         {likedSongs.map(song =>
                         (<li className="song-lists" key={song.id}>
-
                             <h2 className="song-title">{song.name}</h2>
                             <p className="song-artist">{song.artist}</p>
                             <audio controls className="music-controls">
                                 <source src={song.filePath} type="audio/mp3" />
                             </audio>
                             <div className="options">
-
                                 <button className="song-button" value={song.id} onClick={() => unLikeSong(song.id)}>
                                     <i className="fas fa-heart Like song-icon" value={song.id}></i>
                                 </button>

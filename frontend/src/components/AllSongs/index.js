@@ -7,6 +7,7 @@ import * as currentSongActions from "../../store/currentSong"
 import * as likesActions from "../../store/likes"
 import * as likedSongsActions from "../../store/likedSongs"
 import "./AllSongs.css"
+import Song from "../Song"
 import { NavLink } from 'react-router-dom'
 
 
@@ -58,12 +59,14 @@ function AllSongs() {
                     <div className="all-songs">
                         {songs.map(song =>
                         (<li className="song-lists" key={song.id}>
-
+                            <div className="song-container">
                             <h2 className="song-title">{song.name}</h2>
                             <p className="song-artist">{song.artist}</p>
-                            <audio controls className="music-controls">
+                            </div>
+                            {/* <audio controls className="music-controls">
                                 <source src={song.filePath} type="audio/mp3" />
-                            </audio>
+                            </audio> */}
+                                <Song />
                             <div className="options">
                                 <button className="song-button" value={song.id} onClick={() => likeSong(song.id)}>
                                     <i className="fas fa-heart unLike song-icon" value={song.id}></i>
