@@ -42,7 +42,23 @@
     bottom: 0;
     z-index: 20;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
+    font-family: sans-serif;
+}
+
+.title_musicBar {
+    margin: 0;
+    padding: 2px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.artist_musicBar {
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+    color: rgb(87, 87, 87);
 }

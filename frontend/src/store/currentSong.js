@@ -12,10 +12,11 @@ const initialState = {};
 
 //holds the current songs state information
 export const currentSongReducer = (state = initialState, action) => {
-    // let newState;
+    let newState;
     switch (action.type) {
         case SET_SONG:
-            return { currentSong: action.payload }
+            newState = { ...state, ...action.payload }
+            return newState;
         default:
             return state;
     }

@@ -4,12 +4,12 @@ import 'react-h5-audio-player/lib/styles.css';
 import {useSelector} from 'react-redux'
 
 const Player = () => {
-    const song = useSelector((state) => Object.values(state.currentSong));
+    const songFile = useSelector((state) => state.currentSong.filePath);
 
     return (
     <AudioPlayer
         autoPlay
-        src={song}
+        src={songFile}
         onPlay={e => console.log("onPlay")}
     // other props here
     />
@@ -23,7 +23,10 @@ export default function MusicBar() {
             {/* <div className="song-info">
                 <div className="album-image"></div>
                 <div className="song-artist"></div> */}
-                <div className="song_info"></div>
+                <div className="song_info">
+                    <p className="title_musicBar">example title</p>
+                    <p className="artist_musicBar">examlpe artist</p>
+                </div>
                 <div className="audio-player">
                 <Player />
             </div>
