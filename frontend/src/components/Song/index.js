@@ -61,7 +61,7 @@ export default function Song({songId, name, artist, filePath}) {
                     <img className="like" onClick={()=> likeSong(songId)} src={likeIcon} />
                     <p className="song-title">{name}</p>
                     <p className="song-artist">{artist}</p>
-                    <img className="unLike" onClick={()=> unLikeSong(songId)} src={unLikeIcon} />
+                    {/* <img className="unLike" onClick={()=> unLikeSong(songId)} src={unLikeIcon} /> */}
                     <img className="delete" onClick={()=> deleteSong(songId)} src={deleteIcon} />
                 </div>
             </div>

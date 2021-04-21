@@ -65,8 +65,8 @@ function AllSongs() {
                             <p className="title_header">title</p>
                             <div className="seperator_header3"></div>
                             <p className="artist_header">artist</p>
-                            <div className="seperator_header4"></div>
-                            <p className="unlike_header">unlike</p>
+                            {/* <div className="seperator_header4"></div>
+                            <p className="unlike_header">unlike</p> */}
                             <div className="seperator_header5"></div>
                             <p className="delete_header">delete</p>
                         </div>
