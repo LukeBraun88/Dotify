@@ -23,6 +23,7 @@ export default function MusicBar() {
             {/* <div className="song-info">
                 <div className="album-image"></div>
                 <div className="song-artist"></div> */}
+                <div className="song_info"></div>
                 <div className="audio-player">
                 <Player />
             </div>

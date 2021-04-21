@@ -24,12 +24,25 @@
 } */
 
 .audio-player {
-    width: 800px;
     position: fixed;
-    width: 100%;
+    right: 0;
+    left: 230px;
     bottom: 0;
     z-index: 7;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.song_info {
+    position: fixed;
+    height: 88px;
+    width: 230px;
+    left: 0px;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
 }
