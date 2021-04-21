@@ -61,23 +61,7 @@ function AllSongs() {
                         (<li className="song-lists" key={song.id}>
                             <div className="song-container">
                                 <Song songId={song.id} name={song.name} artist={song.artist} filePath={song.filePath}/>
-
                             </div>
-                            {/* <audio controls className="music-controls">
-                                <source src={song.filePath} type="audio/mp3" />
-                            </audio> */}
-                            <div className="options">
-                                <button className="song-button" value={song.id} onClick={() => likeSong(song.id)}>
-                                    <i className="fas fa-heart unLike song-icon" value={song.id}></i>
-                                </button>
-                                <button className="song-button" value={song.id} onClick={() => unLikeSong(song.id)}>
-                                    <i className="fas fa-heart Like song-icon" value={song.id}></i>
-                                </button>
-                                <button className="song-button" value={song.id} onClick={() => deleteSong(song.id)}>
-                                    <i className="fas fa-times removeSong song-icon" value={song.id} ></i>
-                                </button>
-                            </div>
-
                         </li>))
                         }
                     </div>

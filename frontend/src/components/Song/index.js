@@ -25,8 +25,9 @@ export default function Song({songId, name, artist, filePath}) {
 
     const [playing, setPlaying] = useState(false)
 
-    const playSong = () => {
+    const playSong = (filePath) => {
         setPlaying(true)
+        dispatch(currentSongActions.setSong(filePath))
     }
 
     const pauseSong = () => {
@@ -55,7 +56,7 @@ export default function Song({songId, name, artist, filePath}) {
                     {playing ?
                     <img className="pause" onClick={()=> pauseSong(songId)} src={pauseIcon} />
                     :
-                    <img className="play" onClick={()=> playSong(songId)} src={playIcon} />
+                    <img className="play" onClick={()=> playSong(filePath)} src={playIcon} />
                 }
                     <img className="like" onClick={()=> likeSong(songId)} src={likeIcon} />
                     <p className="song-title">{name}</p>

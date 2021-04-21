@@ -1,15 +1,20 @@
 import "./MusicBar.css"
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import {useSelector} from 'react-redux'
 
-const Player = () => (
+const Player = () => {
+    const song = useSelector((state) => Object.values(state.currentSong));
+
+    return (
     <AudioPlayer
         autoPlay
-        src="http://example.com/audio.mp3"
+        src={song}
         onPlay={e => console.log("onPlay")}
     // other props here
     />
-);
+    )
+}
 
 
 export default function MusicBar() {
