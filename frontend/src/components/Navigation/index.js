@@ -18,9 +18,9 @@ function Navigation({ isLoaded }) {
             <NavLink className="home navlink" exact to="/" >Dotify</NavLink>
           </div>
           {sessionUser ?
-            (<div className="dropdown-container">
+            (
               <li><ProfileButton user={sessionUser} /></li>
-            </div>) :
+            ) :
             (
               <div className="right-links">
                 <li className="seperator">|</li>
