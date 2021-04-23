@@ -14,21 +14,22 @@
 } */
 
 .dropdown-button {
-    width: 20px;
-    height: 20px;
+    width: 27px;
+    height: 27px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    right: 0;
+    border-radius: 5px;
+    padding: 5px;
+    /* position: fixed; */
+    /* right: 0; */
 }
 
 .circle {
-    width: 40px;
-    height: 40px;
-    z-index: 20;
-    background-color: white;
+    width: 25px;
+    height: 25px;
+    transform: rotate(-90deg) /* z-index: 20; */
 }
 
 .profile-dropdown {
@@ -38,6 +39,7 @@
     /* flex-direction: column; */
     position: absolute;
     top: 0;
+    right: 20px;
     font-size: 18px;
     font-family: sans-serif;
     align-items: center;
@@ -46,7 +48,13 @@
     padding: 0px;
 }
 
-.profile-list-item{
-    padding: 2px;
+.profile-list-item {
+    padding: 10px;
     margin: 0px;
+}
+
+.button-logout {
+    cursor: pointer;
+    position: relative;
+    right: -7px;
 }

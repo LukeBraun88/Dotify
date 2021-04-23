@@ -30,15 +30,16 @@ function ProfileButton({ user }) {
     return (
         <>
             {/* <div className="button_container"> */}
-            {/* {showMenu && ( */}
             <div className="profile-dropdown">
                 <p className="profile-list-item">{user.username}</p>
+                <button className="dropdown-button" onClick={openMenu}>
                 <img src={profileButton} className="circle" />
-                {/* <button className="dropdown-button" onClick={openMenu}>
-                </button> */}
-                {/* <div className="profile-list-item">
-                            <button onClick={logout}>Log Out</button>
-                        </div> */}
+                </button>
+            {showMenu && (
+                <div className="profile-list-item">
+                            <button className='button-logout' onClick={logout}>Log Out</button>
+                        </div>)
+}
             </div>
             {/* )} */}
             {/* </div> */}
