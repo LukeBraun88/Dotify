@@ -34,9 +34,10 @@ export function UploadSong({ showModal, setShowModal }) {
             await setShowModal(false)
             await unClick()
 
-        } catch (errors) {
-            setErrors(errors);
-            console.log("errors", errors)
+        } catch (res) {
+            if (res.data && res.data.errors) setErrors(res.data.errors);
+            // setErrors(errors);
+            // console.log("errors", errors)
         }
 
     };
@@ -58,7 +59,7 @@ export function UploadSong({ showModal, setShowModal }) {
 
             <form className="song-add pure-form-stacked" onSubmit={handleSubmit}>
                 <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <h2 className="add-song-title">Add a Song</h2>
                 <label>
