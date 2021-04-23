@@ -20,6 +20,10 @@
     width: 210px;
 }
 
+::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
 #modal-content {
     border-radius: 10%;
     border: 4px solid #00e091;
@@ -40,4 +44,5 @@
     margin: 5px 0px;
     /* margin:10px; */
     width: 100px;
+    cursor: pointer;
 }

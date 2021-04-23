@@ -8,6 +8,7 @@
     margin: 0px;
     color: #bebebe;
     text-decoration: none;
+    transition: font-size 0.2s;
 }
 
 .link:hover {

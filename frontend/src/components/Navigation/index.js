@@ -15,7 +15,7 @@ function Navigation({ isLoaded }) {
       <div className="navbar">
         <ul className="navbar-list">
           <div className="left-links">
-            <NavLink className="home navlink" exact to="/" >Dotify</NavLink>
+            <NavLink className="home" exact to="/" >Dotify</NavLink>
           </div>
           {sessionUser ?
             (

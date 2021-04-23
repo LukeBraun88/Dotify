@@ -38,5 +38,8 @@
     height: 60px;
     z-index: 1;
     background: url('../../images/loading.gif') no-repeat center center;
+}
 
+.fa-upload{
+    padding-right: 20px;
 }
