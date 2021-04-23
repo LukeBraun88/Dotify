@@ -29,6 +29,7 @@ const singlePublicFileUpload = async (file) => {
   const path = require("path");
   // name of the file in the S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
+  console.log(Key)
   const uploadParams = {
     Bucket: NAME_OF_BUCKET,
     Key,
@@ -37,7 +38,7 @@ const singlePublicFileUpload = async (file) => {
   };
   const result = await s3.upload(uploadParams).promise();
   const location = result.Location
-  const key = result.key
+  const key = result.Key
   // saves the name of the file in the bucket as the key in the database to retrieve for later
   return {location, key};
 };

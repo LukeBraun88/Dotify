@@ -36,8 +36,6 @@ export function UploadSong({ showModal, setShowModal }) {
 
         } catch (res) {
             if (res.data && res.data.errors) setErrors(res.data.errors);
-            // setErrors(errors);
-            // console.log("errors", errors)
         }
 
     };
