@@ -9,7 +9,7 @@ function SignupFormModal() {
 
     return (
         <>
-            <NavLink to="" className="navlink" onClick={() => setShowModal(true)}>Sign up</NavLink>
+            <NavLink to="" className="login-link navlink" onClick={() => setShowModal(true)}>Sign up</NavLink>
             {showModal && (
                 <Modal className="signup-modal" onClose={() => setShowModal(false)}>
                     <SignupForm />
