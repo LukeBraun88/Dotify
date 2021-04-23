@@ -51,14 +51,16 @@
 
 .title_musicBar {
     margin: 0;
-    padding: 2px;
+    padding: 0px;
     font-size: 25px;
     font-weight: 300;
+    text-align: center;
+    word-break: break-word;
 }
 
 .artist_musicBar {
     margin: 0;
-    padding: 5px;
+    padding: 2px;
     font-size: 16px;
     color: rgb(87, 87, 87);
 }

@@ -86,7 +86,7 @@
 .artist_header {
     margin: 2px;
     position: absolute;
-    left: 400px;
+    left: 500px;
 }
 
 .unlike_header {
@@ -119,7 +119,7 @@
     height: 45px;
     background-color: white;
     position: absolute;
-    left: 385px;
+    left: 485px;
 }
 
 .seperator_header4 {
@@ -135,5 +135,5 @@
     height: 45px;
     background-color: white;
     position: absolute;
-    right: 86px;
+    right: 90px;
 }
